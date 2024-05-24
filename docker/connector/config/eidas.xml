@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023 by European Commission
+  ~
+  ~ Licensed under the EUPL, Version 1.2 or - as soon they will be
+  ~ approved by the European Commission - subsequent versions of the
+  ~ EUPL (the "Licence");
+  ~ You may not use this work except in compliance with the Licence.
+  ~ You may obtain a copy of the Licence at:
+  ~ https://joinup.ec.europa.eu/page/eupl-text-11-12
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the Licence is distributed on an "AS IS" basis,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  ~ implied.
+  ~ See the Licence for the specific language governing permissions and
+  ~ limitations under the Licence.
+  -->
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!-- Connector  -->
+    <!-- Connector assertion URL -->
+    <entry key="connector.assertion.url">NO-EIDAS-CONNECTOR-URL/ColleagueResponse</entry>
+
+    <!--connector Metadata -->
+    <entry key="connector.metadata.url">NO-EIDAS-CONNECTOR-URL/ConnectorMetadata</entry>
+
+    <!-- connector contact -->
+    <entry key="connector.contact.support.email">servicedesk@digdir.no</entry>
+    <entry key="connector.contact.support.company">The Norwegian Digitalisation Agency</entry>
+    <entry key="connector.contact.support.givenname">NA</entry>
+    <entry key="connector.contact.support.surname">NA</entry>
+    <entry key="connector.contact.support.phone">+47 95736103</entry> ><!-- Endre? Telefon ved hastesaker til teknisk forvaltning -->
+    <entry key="connector.contact.technical.email">servicedesk@digdir.no</entry>
+    <entry key="connector.contact.technical.company">The Norwegian Digitalisation Agency</entry>
+    <entry key="connector.contact.technical.givenname">NA</entry>
+    <entry key="connector.contact.technical.surname">NA</entry>
+    <entry key="connector.contact.technical.phone">+47 95736103</entry> <!-- Endre? Telefon ved hastesaker til teknisk forvaltning -->
+    <!-- connector organization -->
+    <entry key="connector.organization.name">The Norwegian Digitalisation Agency</entry>
+    <entry key="connector.organization.displayname">The Norwegian Digitalisation Agency</entry>
+    <entry key="connector.organization.url">https://www.digdir.no/</entry>
+
+    <!-- Eidas Node Service Metadata Single Sign On locations for ServiceMetadata-->
+    <entry key="ssos.serviceMetadataGeneratorIDP.redirect.location">NO-EIDAS-CONNECTOR-URL/ColleagueRequest</entry>
+    <entry key="ssos.serviceMetadataGeneratorIDP.post.location">NO-EIDAS-CONNECTOR-URL/ColleagueRequest</entry>
+
+    <!-- Number of known Proxy-Service -->
+    <entry key="service.number">2</entry>
+
+    <!-- Proxy-Service CA-->
+    <entry key="service1.id">CA</entry>
+    <entry key="service1.name">LOCAL-EIDAS-CA</entry>
+    <entry key="service1.skew.notbefore">0</entry>
+    <entry key="service1.skew.notonorafter">0</entry>
+    <entry key="service1.metadata.url">DEMOLAND-CA-URL/ServiceMetadata</entry>
+
+    <!-- Proxy-Service idporten-->
+    <entry key="service2.id">NO</entry>
+    <entry key="service2.name">LOCAL-EIDAS-NO</entry>
+    <entry key="service2.skew.notbefore">0</entry>
+    <entry key="service2.skew.notonorafter">0</entry>
+    <entry key="service2.metadata.url">EIDAS-PROXY-URL/ServiceMetadata</entry>
+
+    <!-- SECURITY POLICY -->
+    <!-- uri used for the CSP reporting feature-->
+    <entry key="security.header.CSP.report.uri">NO-EIDAS-CONNECTOR-URL/cspReportHandler</entry>
+
+    <!-- value of the NodeCountry to be published in the metadata-->
+    <entry key="metadata.node.country">CA</entry>
+
+    <!--URL for specific-connector response receiver -->
+    <entry key="specific.connector.response.receiver">EIDAS-IDPORTEN-CONNECTOR-URL/ConnectorResponse</entry>
+
+
+</properties>
