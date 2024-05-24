@@ -70,6 +70,6 @@
         <constructor-arg ref="redisMetadataTemplate"/>
     </bean>
 
-    <!-- //todo feiler her -->
+    <!-- //todo feiler her, men må settes-->
     <entry key="node.metadata.not.signed.descriptors">https://dummy.no</entry>
 </beans>
