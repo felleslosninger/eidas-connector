@@ -10,8 +10,7 @@ RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
 RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
-RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-specific-communication/${REDIS_LIB_VERSION}/eidas-redis-specific-communication-${REDIS_LIB_VERSION}.jar
+
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=7.2
@@ -63,7 +62,7 @@ COPY docker/bouncycastle/bcprov-jdk18on-1.78.jar /usr/local/lib/bcprov-jdk18on-1
 
 COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
 # change tomcat port
-RUN sed -i 's/port="8080"/port="8082"/' ${CATALINA_HOME}/conf/server.xml
+RUN sed -i 's/port="8080"/port="8083"/' ${CATALINA_HOME}/conf/server.xml
 
 COPY docker/connector/tomcat-setenv.sh ${CATALINA_HOME}/bin/setenv.sh
 

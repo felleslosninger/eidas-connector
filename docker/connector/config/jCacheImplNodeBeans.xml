@@ -64,6 +64,24 @@
         <constructor-arg value="proxyServiceFlowIdCacheService"/>
     </bean>
 
+    <bean id="specificNodeConnectorRequestCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+        <constructor-arg type="java.lang.String" value="${specific.node.connector.request.cache.name}"/>
+        <constructor-arg ref="redisMetadataTemplate"/>
+    </bean>
+
+    <bean id="nodeSpecificConnectorResponseCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+        <constructor-arg type="java.lang.String" value="${node.specific.connector.response.cache.name}"/>
+        <constructor-arg ref="redisMetadataTemplate"/>
+    </bean>
+
+    <bean id="specificNodeConnectorRequestCache" class="eu.eidas.specificcommunication.CommunicationCache">
+        <constructor-arg ref="specificNodeConnectorRequestCacheImpl"/>
+    </bean>
+
+    <bean id="nodeSpecificConnectorResponseCache" class="eu.eidas.specificcommunication.CommunicationCache">
+        <constructor-arg ref="nodeSpecificConnectorResponseCacheImpl"/>
+    </bean>
+
     <!-- Simple cache for this just to verify the others -->
     <bean id="metadataCacheImpl" class="no.idporten.eidas.redis.cache.metadata.SimpleMetadataCaching">
         <constructor-arg type="java.lang.String" value="metadata"/>

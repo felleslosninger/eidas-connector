@@ -20,7 +20,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--moved content to jCacheSpecificCommunicationCaches.xml temporary, because it prefers to read that one-->
+<!--moved content to jCacheImplNodeBeans.xml temporary, because it prefers to read that one-->
 
 
 </beans>
