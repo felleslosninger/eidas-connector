@@ -76,4 +76,4 @@ COPY --from=builder /data/eidasnode-pub/EIDAS-Node-Connector/target/EidasNodeCon
 # eIDAS audit log folder
 RUN mkdir -p ${CATALINA_HOME}/eidas/logs && chmod 744 ${CATALINA_HOME}/eidas/logs
 
-EXPOSE 8082
+EXPOSE 8083
