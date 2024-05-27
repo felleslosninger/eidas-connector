@@ -74,6 +74,5 @@
     <!--URL for specific-connector response receiver -->
     <entry key="specific.connector.response.receiver">EIDAS-IDPORTEN-CONNECTOR-URL/ConnectorResponse</entry>
 
-    <!-- //todo feiler her, men må settes-->
     <entry key="node.metadata.not.signed.descriptors">http://dummy.no</entry>
 </properties>
