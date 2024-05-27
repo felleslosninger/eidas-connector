@@ -20,53 +20,34 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 
 <properties>
-	<comment>RSA Signing Example: Software Keystore</comment>
-<!-- Request Signing with RSASSA-PSS -->
-	<!--Algorithm-->
-		<!--<entry key="signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha256-rsa-MGF1</entry>-->
-		<!--<entry key="signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha384-rsa-MGF1</entry>-->
-		<entry key="signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
-	<!-- Key -->
-		<entry key="issuer">CN=local-demo-cert, OU=DIGIT, O=European Commission, L=Brussels, ST=Belgium, C=BE</entry>
-		<entry key="serialNumber">6C4536E0B25A05E8214A46C9086521977045417E</entry>
+	<comment>SWModule sign with JKS.</comment>
+	<!-- Signature with RSA -->
+	<entry key="signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
+	<entry key="metadata.signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
 
+	<!-- Request signature -->
+	<entry key="keyStorePath">./keystore/eidasKeyStore.p12</entry>
+	<entry key="keyStorePassword">local-demo</entry>
+	<entry key="keyPassword">local-demo</entry>
+	<entry key="issuer">CN=local-demo-cert, OU=DIGIT, O=European Commission, L=Brussels, ST=Belgium, C=BE</entry>
+	<entry key="serialNumber">6C4536E0B25A05E8214A46C9086521977045417E</entry>
+	<entry key="keyStoreType">PKCS12</entry>
+	<entry key="keyStorePurpose">TRUSTSTORE</entry>
 
-<!-- Metadata signature with RSASSA-PSS-->
-	<!--Algorithm-->
-		<!--<entry key="metadata.signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha256-rsa-MGF1</entry>-->
-		<!--<entry key="metadata.signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha384-rsa-MGF1</entry>-->
-		<entry key="metadata.signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
-	<!-- Self Signed -->
-		<entry key="metadata.issuer">CN=metadata, OU=DIGIT, O=EC, L=Brussels, ST=EU, C=BE</entry>
-		<entry key="metadata.serialNumber">6A4EE55F16AD32E275DE78C77DADC73C8C817126</entry>
-	<!-- Trust Chain -->
-		<!--<entry key="metadata.issuer">CN=intermediateCAMetadata, OU=eID team, O=European Commission, C=EU</entry>-->
-		<!--<entry key="metadata.serialNumber">383BD991</entry>-->
+	<!-- Metadata signature configuration -->
+	<entry key="metadata.keyStorePath">./keystore/eidasKeyStore_METADATA.p12</entry>
+	<entry key="metadata.keyStorePassword">local-demo</entry>
+	<entry key="metadata.keyPassword">local-demo</entry>
+	<entry key="metadata.issuer">CN=metadata, OU=DIGIT, O=EC, L=Brussels, ST=EU, C=BE</entry>
+	<entry key="metadata.serialNumber">6A4EE55F16AD32E275DE78C77DADC73C8C817126</entry>
+	<entry key="metadata.keyStoreType">PKCS12</entry>
 
-	<!-- Keystore Definitions -->
-	<entry key="1.keyStorePath">./keystore/eidasKeyStore.p12</entry>
-	<entry key="1.keyStorePassword">local-demo</entry>
-	<entry key="1.keyPassword">local-demo</entry>
-	<entry key="1.keyStoreType">PKCS12</entry>
-
-	<entry key="2.keyStorePath">./keystore/eidasKeyStore_METADATA.p12</entry>
-	<entry key="2.keyStorePassword">local-demo</entry>
-	<entry key="2.keyPassword">local-demo</entry>
-	<entry key="2.keyStoreType">PKCS12</entry>
-
-	<entry key="3.keyStorePath">./keystore/eidasKeyStore_METADATA_TC.p12</entry>
-	<entry key="3.keyStorePassword">local-demo</entry>
-	<entry key="3.keyPassword">local-demo</entry>
-	<entry key="3.keyStoreType">PKCS12</entry>
-
-	<!-- TRUSTSTORE -->
-	<entry key="4.keyStorePath">./keystore/eidasTrustStore.p12</entry>
-	<entry key="4.keyStorePassword">local-demo</entry>
-	<entry key="4.keyStoreType">PKCS12</entry>
-	<entry key="4.keyStorePurpose">TRUSTSTORE</entry>
-	<!-- Note:
-	Certificate-only .p12 keystores are best made and verified with keytool not openssl.
-	The property "keyPassword" is required if the software keystore contains private keys.
-	-->
+	<!--configuration for using the metadata keystore with a trust chain-->
+	<!--<entry key="metadata.keyStorePath">./keystore/eidasKeyStore_METADATA_TC.p12</entry>-->
+	<!--<entry key="metadata.keyStorePassword">local-demo</entry>-->
+	<!--<entry key="metadata.keyPassword">local-demo</entry>-->
+	<!--<entry key="metadata.issuer">CN=intermediateCAMetadata, OU=eID team, O=European Commission, C=EU</entry>-->
+	<!--<entry key="metadata.serialNumber">383BD991</entry>-->
+	<!--<entry key="metadata.keyStoreType">PKCS12</entry>-->
 
 </properties>
