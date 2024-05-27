@@ -20,18 +20,18 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-	<!-- eIDAS-Node messages logging: Point 4 -->
-	<!-- The logging identifier to which this lightRequest is sent  -->
-	<entry key="lightToken.connector.request.node.id">specificconnector</entry>
+	<!-- eIDAS-Node messages logging: Point 1 -->
+	<!-- The logging identifier from which this lightRequest was received -->
+	<entry key="lightToken.connector.request.node.id">specificConnector</entry>
 
 	<!--secrets and algorithms for lightRequest token-->
 	<entry key="lightToken.connector.request.issuer.name">specificCommunicationDefinitionConnectorRequest</entry>
 	<entry key="lightToken.connector.request.secret">${lightTokenConnectorRequestSecret}</entry>
 	<entry key="lightToken.connector.request.algorithm">SHA-256</entry>
 
-	<!-- eIDAS-Node messages logging: Point 5 -->
-	<!-- The logging identifier from which this lightResponse was received -->
-	<entry key="lightToken.connector.response.node.id">specificconnector</entry>
+	<!-- eIDAS-Node messages logging: Point 8 -->
+	<!-- The logging identifier to which this lightResponse is sent  -->
+	<entry key="lightToken.connector.response.node.id">specificConnector</entry>
 
 	<!--secrets and algorithms for lightResponse token-->
 	<entry key="lightToken.connector.response.issuer.name">specificCommunicationDefinitionConnectorResponse</entry>

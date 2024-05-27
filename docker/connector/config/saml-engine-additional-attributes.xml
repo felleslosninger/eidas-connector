@@ -38,13 +38,4 @@
     <entry key="2.XmlType.LocalPart">string</entry>
     <entry key="2.XmlType.NamespacePrefix">xs</entry>
     <entry key="2.AttributeValueMarshaller">eu.eidas.auth.commons.attribute.impl.LiteralStringAttributeValueMarshaller</entry>
-
-    <entry key="3.NameUri">http://data.europa.eu/p4s/attributes/naturalperson/PowerOfRepresentationScope</entry>
-    <entry key="3.FriendlyName">PowerOfRepresentationScope</entry>
-    <entry key="3.PersonType">NaturalPerson</entry>
-    <entry key="3.Required">false</entry>
-    <entry key="3.XmlType.NamespaceUri">http://www.w3.org/2001/XMLSchema</entry>
-    <entry key="3.XmlType.LocalPart">string</entry>
-    <entry key="3.XmlType.NamespacePrefix">xs</entry>
-    <entry key="3.AttributeValueMarshaller">eu.eidas.auth.commons.attribute.impl.LiteralStringAttributeValueMarshaller</entry>
 </properties>
