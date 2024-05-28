@@ -70,7 +70,8 @@
 
     <!-- value of the NodeCountry to be published in the metadata-->
     <entry key="metadata.node.country">CA</entry>
-
+    <!-- Restrict metadata retrieval to https -->
+    <entry key="metadata.restrict.http">true</entry>
     <!--URL for specific-connector response receiver -->
     <entry key="specific.connector.response.receiver">EIDAS-IDPORTEN-CONNECTOR-URL/ConnectorResponse</entry>
 
