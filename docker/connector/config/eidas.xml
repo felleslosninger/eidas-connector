@@ -69,14 +69,13 @@
     <entry key="security.header.CSP.report.uri">NO-EIDAS-CONNECTOR-URL/cspReportHandler</entry>
 
     <!-- value of the NodeCountry to be published in the metadata-->
-<<<<<<< HEAD
-    <entry key="metadata.node.country">CA</entry>
+
+
     <!-- Restrict metadata retrieval to https -->
     <entry key="metadata.restrict.http">true</entry>
-=======
+
     <entry key="metadata.node.country">NO</entry>
 
->>>>>>> df343dda788416ca7a5b5a930455faf4de150f56
     <!--URL for specific-connector response receiver -->
     <entry key="specific.connector.response.receiver">EIDAS-IDPORTEN-CONNECTOR-URL/ConnectorResponse</entry>
 
