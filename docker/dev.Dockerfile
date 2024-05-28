@@ -40,7 +40,8 @@ COPY docker/connector/config/ eidas-connector-config
 RUN sed -i 's/EIDAS-PROXY-URL/http:\/\/eidas-proxy:8082/g' eidas-connector-config/eidas.xml
 RUN sed -i 's/NO-EIDAS-CONNECTOR-URL/http:\/\/eidas-connector:8083/g' eidas-connector-config/eidas.xml
 RUN sed -i 's/DEMOLAND-CA-URL/http:\/\/eidas-demo-ca:8080\/EidasNodeProxy/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL/http:\/\/eidas-idporten-connector:8080/g' eidas-connector-config/eidas.xml
+RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL\/ConnectorResponse/http:\/\/eidas-idporten-connector:8088\/ConnectorResponse/g' eidas-connector-config/eidas.xml
+RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL/http:\/\/eidas-idporten-connector:8088/g' eidas-connector-config/eidas.xml
 
 
 RUN sed -i 's/DEMOLAND-CA-URL/http:\/\/eidas-demo-ca:8080\/EidasNodeProxy/g' eidas-connector-config/metadata/MetadataFetcher_Connector.properties
