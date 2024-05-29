@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!--Redis config -->
+    <entry key="redis.host">${redisHost}</entry>
+    <entry key="redis.port">${redisPort}</entry>
+    <entry key="redis.password">${redisPassword}</entry>
+</properties>

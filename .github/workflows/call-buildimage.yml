@@ -1,0 +1,33 @@
+
+name: Build/publish Docker image
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'src/test/**'
+      - 'docker-compose.yaml'
+      - '*.md'
+      - 'LICENSE'
+
+jobs:
+  build-publish-image:
+    uses: felleslosninger/github-workflows/.github/workflows/ci-build-publish-image.yml@main
+    with:
+      image-name: eidas-connector
+      application-type: docker
+      add-git-package-token: true
+    secrets: inherit
+
+  call-update-image:
+    uses: felleslosninger/github-workflows/.github/workflows/ci-call-update-image.yml@main
+    needs: [build-publish-image]
+    with:
+      application-name: eidas-connector
+      deployment-environment: systest
+      image-digest: ${{ needs.build-publish-image.outputs.image-digest }}
+      image-name: eidas-connector
+      image-version: ${{ needs.build-publish-image.outputs.image-version }}
+      kubernetes-repo: idporten-cd
+      product-name: eidas
+    secrets: inherit
