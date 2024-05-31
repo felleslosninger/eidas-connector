@@ -39,9 +39,9 @@ COPY docker/connector/config/ eidas-connector-config
 
 # Replace base URLs in eidas.xml and metadata (whitelist). TODO: move to environment specific k8 config
 RUN sed -i 's/EIDAS-PROXY-URL/https:\/\/proxy.eidasnode.dev/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL/https:\/\/idporten-proxy.eidasnode.dev/g' eidas-connector-config/eidas.xml
 RUN sed -i 's/NO-EIDAS-CONNECTOR-URL/https:\/\/connector.eidasnode.dev/g' eidas-connector-config/eidas.xml
 RUN sed -i 's/DEMOLAND-CA-URL/https:\/\/eidas-demo-ca.eidasnode.dev\/EidasNodeProxy/g' eidas-connector-config/eidas.xml
+RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL/https:\/\/idporten-connector.eidasnode.dev/g' eidas-connector-config/eidas.xml
 
 RUN sed -i 's/DEMOLAND-CA-URL/https:\/\/eidas-demo-ca.eidasnode.dev\/EidasNodeProxy/g' eidas-connector-config/metadata/MetadataFetcher_Connector.properties
 RUN sed -i 's/EIDAS-PROXY-URL/https:\/\/proxy.eidasnode.dev/g' eidas-connector-config/metadata/MetadataFetcher_Connector.properties
