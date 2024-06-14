@@ -22,10 +22,10 @@
 
     <!-- Connector  -->
     <!-- Connector assertion URL -->
-    <entry key="connector.assertion.url">NO-EIDAS-CONNECTOR-URL/ColleagueResponse</entry>
+    <entry key="connector.assertion.url">http://eidas-connector:8083/ColleagueResponse</entry>
 
     <!--connector Metadata -->
-    <entry key="connector.metadata.url">NO-EIDAS-CONNECTOR-URL/ConnectorMetadata</entry>
+    <entry key="connector.metadata.url">http://eidas-connector:8083/ConnectorMetadata</entry>
 
     <!-- connector contact -->
     <entry key="connector.contact.support.email">servicedesk@digdir.no</entry>
@@ -44,8 +44,8 @@
     <entry key="connector.organization.url">https://www.digdir.no/</entry>
 
     <!-- Eidas Node Service Metadata Single Sign On locations for ServiceMetadata-->
-    <entry key="ssos.serviceMetadataGeneratorIDP.redirect.location">NO-EIDAS-CONNECTOR-URL/ColleagueRequest</entry>
-    <entry key="ssos.serviceMetadataGeneratorIDP.post.location">NO-EIDAS-CONNECTOR-URL/ColleagueRequest</entry>
+    <entry key="ssos.serviceMetadataGeneratorIDP.redirect.location">http://eidas-connector:8083/ColleagueRequest</entry>
+    <entry key="ssos.serviceMetadataGeneratorIDP.post.location">http://eidas-connector:8083/ColleagueRequest</entry>
 
     <!-- Number of known Proxy-Service -->
     <entry key="service.number">2</entry>
@@ -55,29 +55,29 @@
     <entry key="service1.name">LOCAL-EIDAS-CA</entry>
     <entry key="service1.skew.notbefore">0</entry>
     <entry key="service1.skew.notonorafter">0</entry>
-    <entry key="service1.metadata.url">DEMOLAND-CA-URL/ServiceMetadata</entry>
+    <entry key="service1.metadata.url">http://eidas-demo-ca:8080/ServiceMetadata</entry>
 
     <!-- Proxy-Service idporten-->
     <entry key="service2.id">NO</entry>
     <entry key="service2.name">LOCAL-EIDAS-NO</entry>
     <entry key="service2.skew.notbefore">0</entry>
     <entry key="service2.skew.notonorafter">0</entry>
-    <entry key="service2.metadata.url">EIDAS-PROXY-URL/ServiceMetadata</entry>
+    <entry key="service2.metadata.url">http:///eidas-proxy:8082/ServiceMetadata</entry>
 
     <!-- SECURITY POLICY -->
     <!-- uri used for the CSP reporting feature-->
-    <entry key="security.header.CSP.report.uri">NO-EIDAS-CONNECTOR-URL/cspReportHandler</entry>
+    <entry key="security.header.CSP.report.uri">http://eidas-connector:8083/cspReportHandler</entry>
 
     <!-- value of the NodeCountry to be published in the metadata-->
 
 
     <!-- Restrict metadata retrieval to https -->
-    <entry key="metadata.restrict.http">true</entry>
+    <entry key="metadata.restrict.http">false</entry>
 
     <entry key="metadata.node.country">NO</entry>
 
     <!--URL for specific-connector response receiver -->
-    <entry key="specific.connector.response.receiver">EIDAS-IDPORTEN-CONNECTOR-URL/ConnectorResponse</entry>
+    <entry key="specific.connector.response.receiver">http://eidas-idporten-connector:8088/ConnectorResponse</entry>
 
     <entry key="node.metadata.not.signed.descriptors">http://dummy.no</entry>
 </properties>
