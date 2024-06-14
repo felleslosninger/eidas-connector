@@ -33,24 +33,6 @@ COPY docker/connector/logback.xml eidasnode-pub/EIDAS-Node-Connector/src/main/re
 # Build eidas connector service
 RUN cd eidasnode-pub && mvn clean install --file EIDAS-Parent/pom.xml -P NodeOnly -P-specificCommunicationJcacheIgnite -DskipTests
 
-RUN mkdir -p eidas-connector-config/
-COPY docker/connector/config/ eidas-connector-config
-
-# Replace base URLs in eidas.xml and metadata (whitelist).
-RUN sed -i 's/EIDAS-PROXY-URL/http:\/\/eidas-proxy:8082/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/NO-EIDAS-CONNECTOR-URL/http:\/\/eidas-connector:8083/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/DEMOLAND-CA-URL/http:\/\/eidas-demo-ca:8080\/EidasNodeProxy/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL\/ConnectorResponse/http:\/\/eidas-idporten-connector:8088\/ConnectorResponse/g' eidas-connector-config/eidas.xml
-RUN sed -i 's/EIDAS-IDPORTEN-CONNECTOR-URL/http:\/\/eidas-idporten-connector:8088/g' eidas-connector-config/eidas.xml
-
-
-RUN sed -i 's/DEMOLAND-CA-URL/http:\/\/eidas-demo-ca:8080\/EidasNodeProxy/g' eidas-connector-config/metadata/MetadataFetcher_Connector.properties
-RUN sed -i 's/EIDAS-PROXY-URL/http:\/\/eidas-proxy:8082/g' eidas-connector-config/metadata/MetadataFetcher_Connector.properties
-
-# Only for local development
-RUN sed -i 's/metadata.restrict.http">true/metadata.restrict.http">false/g' eidas-connector-config/eidas.xml
-
-
 FROM tomcat:9.0-jre11-temurin-jammy
 
 #Fjerner passord fra logger ved oppstart
@@ -67,8 +49,12 @@ RUN sed -i 's/port="8080"/port="8083"/' ${CATALINA_HOME}/conf/server.xml
 
 COPY docker/connector/tomcat-setenv.sh ${CATALINA_HOME}/bin/setenv.sh
 
-RUN mkdir -p /etc/config/ && chmod 770 /etc/config/
-COPY --from=builder /data/eidas-connector-config/ /etc/config
+RUN mkdir -p /etc/config && chmod 770 /etc/config
+COPY docker/connector/config /etc/config/eidas-connector
+COPY docker/connector/profiles /etc/config/profiles
+
+COPY docker/overrideProperties.sh ${CATALINA_HOME}/bin/overrideProperties.sh
+RUN chmod 755 ${CATALINA_HOME}/bin/overrideProperties.sh
 
 # Add war files to webapps: /usr/local/tomcat/webapps
 COPY --from=builder /data/eidasnode-pub/EIDAS-Node-Connector/target/EidasNodeConnector.war ${CATALINA_HOME}/webapps/ROOT.war
