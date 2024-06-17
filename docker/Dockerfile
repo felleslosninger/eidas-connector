@@ -53,6 +53,9 @@ COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
 RUN chmod 776 /etc/config/eidas-connector
 
+COPY docker/overrideProperties.sh ${CATALINA_HOME}/bin/overrideProperties.sh
+RUN chmod 755 ${CATALINA_HOME}/bin/overrideProperties.sh
+
 # Add war files to webapps: /usr/local/tomcat/webapps
 COPY --from=builder /data/eidasnode-pub/EIDAS-Node-Connector/target/EidasNodeConnector.war ${CATALINA_HOME}/webapps/ROOT.war
 RUN chmod -R 770 ${CATALINA_HOME}/webapps
