@@ -53,6 +53,9 @@ COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
 RUN chmod 776 /etc/config/eidas-connector
 
+COPY docker/addEnvironmentSpesificConfigFiles.sh ${CATALINA_HOME}/bin/addEnvironmentSpesificConfigFiles.sh
+RUN chmod 755 ${CATALINA_HOME}/bin/addEnvironmentSpesificConfigFiles.sh
+
 # Add war files to webapps: /usr/local/tomcat/webapps
 COPY --from=builder /data/eidasnode-pub/EIDAS-Node-Connector/target/EidasNodeConnector.war ${CATALINA_HOME}/webapps/ROOT.war
 RUN chmod -R 770 ${CATALINA_HOME}/webapps
@@ -64,4 +67,4 @@ RUN mkdir -p ${CATALINA_HOME}/eidas/logs && chmod 774 ${CATALINA_HOME}/eidas/log
 
 EXPOSE 8080
 
-CMD ["/bin/bash", "-c", "./bin/overrideProperties.sh;catalina.sh run"]
+CMD ["/bin/bash", "-c", "./bin/addEnvironmentSpesificConfigFiles.sh;catalina.sh run"]
