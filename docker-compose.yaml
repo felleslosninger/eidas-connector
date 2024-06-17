@@ -29,6 +29,7 @@ services:
       - REDIS_PORT=6379
       - LIGHT_TOKEN_CONNECTOR_REQUEST_SECRET=mySecretConnectorRequest
       - LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET=mySecretConnectorResponse
+      - ENVIRONMENT=docker
       - CATALINA_OPTS=-Xms512m -Xmx1024m -DredisPassword=$${REDIS_PASSWORD} -DredisPort=$${REDIS_PORT} -DredisHost=$${REDIS_HOST} -DlightTokenConnectorRequestSecret=$${LIGHT_TOKEN_CONNECTOR_REQUEST_SECRET} -DlightTokenConnectorResponseSecret=$${LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET}
     ports:
       - "8083:8083"
