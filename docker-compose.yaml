@@ -27,6 +27,11 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - TRUSTSTORE_PASSWORD=changeit
+      - SIGN_KEYSTORE_PASSWORD=changeit
+      - SIGN_KEYSTORE_KEY_PASSWORD=changeit
+      - ENCRYPT_KEYSTORE_PASSWORD=changeit
+      - ENCRYPT_KEYSTORE_KEY_PASSWORD=changeit
       - LIGHT_TOKEN_CONNECTOR_REQUEST_SECRET=mySecretConnectorRequest
       - LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET=mySecretConnectorResponse
       - ENVIRONMENT=docker
@@ -46,6 +51,7 @@ services:
       - |
         cd /usr/local/tomcat
         ./bin/addEnvironmentSpesificConfigFiles.sh
+        ./bin/updateKeyStoreConfig.sh
         ./bin/catalina.sh run
 
 
