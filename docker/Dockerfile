@@ -32,7 +32,7 @@ COPY docker/connector/config/connectorSpecificCommunicationCaches.xml eidasnode-
 COPY docker/connector/logback.xml eidasnode-pub/EIDAS-Node-Connector/src/main/resources/logback.xml
 
 #Add HSM config
-COPY docker/luna/hsm.cfg eidasnode-pub/EIDAS-Node-Proxy/src/main/webapp/WEB-INF/
+COPY docker/luna/hsm.cfg eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/
 
 # Build eidas connector service
 RUN cd eidasnode-pub && mvn clean install --file EIDAS-Parent/pom.xml -P NodeOnly -P-specificCommunicationJcacheIgnite -DskipTests

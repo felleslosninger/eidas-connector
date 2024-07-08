@@ -19,8 +19,8 @@ if [ -f "$SIGNMODULE_CONNECTOR_FILE" ]; then
     sed -i "s/TRUSTSTORE_PASSWORD/$TRUSTSTORE_PASSWORD/g" $SIGNMODULE_CONNECTOR_FILE
     sed -i "s/SIGN_KEYSTORE_PASSWORD/$SIGN_KEYSTORE_PASSWORD/g" $SIGNMODULE_CONNECTOR_FILE
     sed -i "s/SIGN_KEYSTORE_KEY_PASSWORD/$SIGN_KEYSTORE_KEY_PASSWORD/g" $SIGNMODULE_CONNECTOR_FILE
-    echo "Remove hsm security provider from java"
-    sed 's/\SunPKCS11.*/SunPKCS11/g' /opt/java/openjdk/conf/security/java_bc.security > /opt/java/openjdk/conf/security/java_bc.security
+    sed -i 's/\SunPKCS11.*/SunPKCS11/g' /opt/java/openjdk/conf/security/java_bc.security
+    echo "Removed HSM security provider from java" && grep SunPKCS11 /opt/java/openjdk/conf/security/java_bc.security
 fi
 
 # -------- HSM -----------
