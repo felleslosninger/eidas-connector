@@ -27,10 +27,10 @@
 	<entry key="metadata.signature.algorithm">http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512</entry>
 
 
-	<entry key="issuer">CN=eIdas-test,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger</entry>
+	<entry key="issuer">HSM_CERTIFICATE_ISSUER</entry>
 	<entry key="serialNumber">HSM_CERTIFICATE_SERIAL_NUMBER_HEX</entry>
 
-	<entry key="metadata.issuer">CN=eIdas-test,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger</entry>
+	<entry key="metadata.issuer">HSM_CERTIFICATE_ISSUER</entry>
 	<entry key="metadata.serialNumber">HSM_CERTIFICATE_SERIAL_NUMBER_HEX</entry>
 
 
