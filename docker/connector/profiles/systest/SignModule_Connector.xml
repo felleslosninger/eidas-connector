@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2024 by European Commission
+  ~
+  ~ Licensed under the EUPL, Version 1.2 or - as soon they will be
+  ~ approved by the European Commission - subsequent versions of the
+  ~ EUPL (the "Licence");
+  ~ You may not use this work except in compliance with the Licence.
+  ~ You may obtain a copy of the Licence at:
+  ~ https://joinup.ec.europa.eu/page/eupl-text-11-12
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the Licence is distributed on an "AS IS" basis,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  ~ implied.
+  ~ See the Licence for the specific language governing permissions and
+  ~ limitations under the Licence.
+  -->
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+	<comment>SWModule sign with JKS.</comment>
+
+    <entry key="signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
+    <entry key="metadata.signature.algorithm">http://www.w3.org/2007/05/xmldsig-more#sha512-rsa-MGF1</entry>
+
+	<!-- Truststore of other countries metadata signature certificates -->
+	<entry key="1.keyStorePath">./keystore/otherCountriesEidasKeyStore.p12</entry>
+	<entry key="1.keyStorePassword">TRUSTSTORE_PASSWORD</entry>
+	<entry key="1.keyStoreType">PKCS12</entry>
+	<entry key="1.keyStorePurpose">TRUSTSTORE</entry>
+
+    <!-- Request signature -->
+    <entry key="2.keyStorePath">./keystore/norwegianConnectorKeyStore.p12</entry>
+    <entry key="2.keyStorePassword">SIGN_KEYSTORE_PASSWORD</entry>
+    <entry key="2.keyPassword">SIGN_KEYSTORE_KEY_PASSWORD</entry>
+    <entry key="2.keyStoreType">PKCS12</entry>
+    <entry key="issuer">CN=eIDAS-connector-systest-sign,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,ST=Sogndal,C=NO</entry>
+    <entry key="serialNumber">7FE148F6B39AE57B94C8DC6DB52201919D1DC869</entry>
+    
+    <!-- Configuration for Metadata signatures with EC -->
+    <entry key="3.keyStorePath">./keystore/norwegianEidasKeyStore_METADATA.p12</entry>
+	<entry key="3.keyStorePassword">SIGN_METADATA_KEYSTORE_PASSWORD</entry>
+	<entry key="3.keyPassword">SIGN_METADATA_KEYSTORE_KEY_PASSWORD</entry>
+	<entry key="3.keyStoreType">PKCS12</entry>
+	<entry key="metadata.issuer">CN=eidas-node-metadata,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,ST=Sogndal,C=NO</entry>
+    <entry key="metadata.serialNumber">5C439B135211720D4F80BB2579F2019173ADCE66</entry>
+
+	<!-- Configuration for using the metadata keystore with a trust chain -->
+	<!--
+	<entry key="metadata.keyStorePath">./keystore/eidasKeyStore_METADATA_TC_EC.p12</entry>
+	<entry key="metadata.keyStorePassword">local-demo</entry>
+	<entry key="metadata.keyPassword">local-demo</entry>
+	<entry key="metadata.issuer">C=EU, O=European Commission, OU=eID team, CN=intermediateCAMetadata</entry>
+	<entry key="metadata.serialNumber">7278ECE783D310FB6E84561BFF07C01582FD8AFA</entry>
+	<entry key="metadata.keyStoreType">PKCS12</entry>
+	-->
+
+</properties>
