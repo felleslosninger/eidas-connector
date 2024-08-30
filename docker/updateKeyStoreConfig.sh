@@ -26,9 +26,11 @@ if [ -f "$SIGNMODULE_CONNECTOR_FILE" ]; then
 fi
 
 # -------- HSM -----------
-# KEYSTORE_PASSWORD==HSM Password/pin
-# HSM_ALIAS==alias/label in HSM
-# HSM_CERTIFICATE_SERIAL_NUMBER_HEX==Serial number of certificate in HSM in hex format
+# HSM_PASSWORD==HSM Password/pin
+# HSM_SIGN_ALIAS==alias/label in HSM for signing reponse messages
+# HSM_SIGN_CERTIFICATE_SERIAL_NUMBER_HEX==Serial number of certificate in HSM in hex format for signing reponse messages
+# HSM_METADATA_SIGN_ALIAS==alias/label in HSM for signing metadata
+# HSM_METADATA_SIGN_CERTIFICATE_SERIAL_NUMBER_HEX==Serial number of certificate in HSM in hex format for signing metadata
 SIGNMODULE_CONNECTOR_FILE_HSM=/etc/config/eidas-connector/SignModule_Connector_HSM_P12.xml
 if [ -f "$SIGNMODULE_CONNECTOR_FILE_HSM" ]; then
     echo "Update keystore-config in $SIGNMODULE_CONNECTOR_FILE_HSM" && printenv | grep -E 'HSM_SIGN_|HSM_METADATA_SIGN_'
