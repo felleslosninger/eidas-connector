@@ -1,18 +1,22 @@
 # eIDAS-connector Configuration
 
-Folder `config` contains the configuration files for the eIDAS-connector.
+Folder `connector/config` contains common configuration files for the eIDAS-connector.
+Folder `connector/profiles/<environment>` contains environment specific configuration.
 
-## URLs
-Placeholders to change:
-* `NO-EIDAS-CONNECTOR-URL` - URL of this application (eidas-connector) used in eidas.xml
-* `IDPORTEN-CONNECTOR-URL` - URL to eidas-idporten-connector (SpecificConnectorService) used in eidas.xml
-* `DEMOLAND-CA-URL` - URL of the CA of the DEMOLAND country whitelisted in metadata/ folder. Also add foreign countries EidasNodeConnector to this list.
-* `NO-EU-EIDAS-CONNECTOR-URL` - URL of Norway NO country whitelisted in metadata/ folder. Also add foreign countries EidasNodeConnector to this list.
-
-NB: might be changed to reflect correct context-paths and api.
-
-These must be altered in dockerfile or in config outside of K8 container.
+docker/connector/profiles/<environment>/eidas.xml contains configuration of connected countries.
 
 ## Keystores
-TODO: replace with our versions, should use HMS in test/production.
+Are read from Vault as base64 encoded strings and decoded as keystores via scripts. 
+The keystore passwords and keystore-key passwords is stored in Vault as well.
 
+### Encryption
+Keystore stored in Vault for all environments.
+Configured in EncryptModule_Connector.xml.
+
+### Truststore of other countries metadata signing certificates
+Truststore stored in Vault for all environments.
+Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.
+
+### Signing and metadata signing
+Signing + metadata signing certificate and key stored in HSM for test and production environments. For local-docker and systest these are stored in Vault.
+Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.

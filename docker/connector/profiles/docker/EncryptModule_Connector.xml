@@ -29,8 +29,8 @@
 
     <!-- Key transport config -->
     <!--  If not present then no decryption will be applied on response -->
-    <entry key="responseDecryptionIssuer">CN=local-demo-cert, OU=DIGIT, O=European Commission, L=Brussels, ST=Belgium, C=BE</entry>
-    <entry key="serialNumber">6C4536E0B25A05E8214A46C9086521977045417E</entry>
+    <entry key="responseDecryptionIssuer">CN=eidas-local-encryption,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,C=NO</entry>
+    <entry key="serialNumber">7F17461D3F95EE34A7302C6F70E60191F9B4D7FC</entry>
 
     <!-- Key Agreement config -->
     <!--  If not present then no decryption will be applied on response -->
