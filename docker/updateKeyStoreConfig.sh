@@ -5,13 +5,13 @@
 #ENCRYPTION: Add passwords to config file for encryption
 ENCRYPTMODULE_CONNECTOR_FILE=/etc/config/eidas-connector/EncryptModule_Connector.xml
 if [ -f "$ENCRYPTMODULE_CONNECTOR_FILE" ]; then
-    echo "Update keystore-config in $ENCRYPTMODULE_CONNECTOR_FILE" && printenv | grep ENCRYPT
+    echo "Update keystore-config in $ENCRYPTMODULE_CONNECTOR_FILE" && printenv | grep ENCRYPT_CERTIFICATE
     sed -i "s/ENCRYPT_KEYSTORE_PASSWORD/$ENCRYPT_KEYSTORE_PASSWORD/g" $ENCRYPTMODULE_CONNECTOR_FILE
     sed -i "s/ENCRYPT_KEYSTORE_KEY_PASSWORD/$ENCRYPT_KEYSTORE_KEY_PASSWORD/g" $ENCRYPTMODULE_CONNECTOR_FILE
     sed -i "s/ENCRYPT_CERTIFICATE_SERIAL_NUMBER_HEX/$ENCRYPT_CERTIFICATE_SERIAL_NUMBER_HEX/g" $ENCRYPTMODULE_CONNECTOR_FILE
     sed -i "s/ENCRYPT_CERTIFICATE_ISSUER/$ENCRYPT_CERTIFICATE_ISSUER/g" $ENCRYPTMODULE_CONNECTOR_FILE
     echo "$ENCRYPT_KEYSTORE_BASE64" | base64 -d > /etc/config/eidas-connector/keystore/eidasEncryptionKeyStore.p12
-    cho "Converted encryption keystore and created 1 files" && ls -l /etc/config/eidas-connector/keystore/
+    echo "Converted encryption keystore and created 1 files" && ls -l /etc/config/eidas-connector/keystore/
 fi
 
 # SIGNING: Add passwords to config file for signing

@@ -29,8 +29,8 @@
 
     <!-- Key transport config -->
     <!--  If not present then no decryption will be applied on response -->
-    <entry key="responseDecryptionIssuer">ENCRYPT_CERTIFICATE_SERIAL_NUMBER_HEX</entry>
-    <entry key="serialNumber">ENCRYPT_CERTIFICATE_ISSUER</entry>
+    <entry key="responseDecryptionIssuer">ENCRYPT_CERTIFICATE_ISSUER</entry>
+    <entry key="serialNumber">ENCRYPT_CERTIFICATE_SERIAL_NUMBER_HEX</entry>
 
 
 </properties>
