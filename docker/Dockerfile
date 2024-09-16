@@ -13,7 +13,7 @@ RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
 RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-specific-communication/${REDIS_LIB_VERSION}/eidas-redis-specific-communication-${REDIS_LIB_VERSION}.jar
 
-# Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in proxy pom.xml
+# Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=7.2
 RUN curl -L -O https://repo1.maven.org/maven2/net/logstash/logback/logstash-logback-encoder/${LOG_LIB_VERSION}/logstash-logback-encoder-${LOG_LIB_VERSION}.jar
 ARG JACKSON_LIB_VERSION=2.13.3
@@ -66,7 +66,7 @@ COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
 RUN mkdir -p /etc/config && chmod 770 /etc/config
 COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
-RUN chmod 776 /etc/config/eidas-connector && mkdir /etc/config/eidas-proxy/keystore && chmod 776 /etc/config/eidas-proxy/keystore
+RUN chmod 776 /etc/config/eidas-connector && mkdir /etc/config/eidas-connector/keystore && chmod 776 /etc/config/eidas-connector/keystore
 
 COPY docker/addEnvironmentSpesificConfigFiles.sh docker/updateKeyStoreConfig.sh ${CATALINA_HOME}/bin/
 RUN chmod 755 ${CATALINA_HOME}/bin/addEnvironmentSpesificConfigFiles.sh && chmod 755 ${CATALINA_HOME}/bin/updateKeyStoreConfig.sh
