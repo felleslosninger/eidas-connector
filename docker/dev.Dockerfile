@@ -67,7 +67,7 @@ COPY docker/connector/tomcat-setenv.sh ${CATALINA_HOME}/bin/setenv.sh
 RUN mkdir -p /etc/config && chmod 777 /etc/config
 COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
-RUN chmod 766 /etc/config/profiles/docker/SignModule_Connector*.xml
+RUN chmod 776 /etc/config/eidas-connector && mkdir /etc/config/eidas-connector/keystore && chmod 776 /etc/config/eidas-connector/keystore
 
 COPY docker/addEnvironmentSpesificConfigFiles.sh docker/updateKeyStoreConfig.sh ${CATALINA_HOME}/bin/
 RUN chmod 755 ${CATALINA_HOME}/bin/addEnvironmentSpesificConfigFiles.sh && chmod 755 ${CATALINA_HOME}/bin/updateKeyStoreConfig.sh

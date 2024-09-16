@@ -66,8 +66,7 @@ COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
 RUN mkdir -p /etc/config && chmod 770 /etc/config
 COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
-RUN chmod 776 /etc/config/eidas-connector
-RUN chmod 766 /etc/config/profiles/docker/SignModule_Connector*.xml
+RUN chmod 776 /etc/config/eidas-connector && mkdir /etc/config/eidas-proxy/keystore && chmod 776 /etc/config/eidas-proxy/keystore
 
 COPY docker/addEnvironmentSpesificConfigFiles.sh docker/updateKeyStoreConfig.sh ${CATALINA_HOME}/bin/
 RUN chmod 755 ${CATALINA_HOME}/bin/addEnvironmentSpesificConfigFiles.sh && chmod 755 ${CATALINA_HOME}/bin/updateKeyStoreConfig.sh
