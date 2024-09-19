@@ -22,10 +22,10 @@
 <properties>
     <comment>SWModule encrypt with JKS.</comment>
     <!-- Key store configuration -->
-    <entry key="keyStorePath">./keystore/eidasEncryptionKeyStore.p12</entry>
-    <entry key="keyStorePassword">ENCRYPT_KEYSTORE_PASSWORD</entry>
-    <entry key="keyPassword">ENCRYPT_KEYSTORE_KEY_PASSWORD</entry>
-    <entry key="keyStoreType">PKCS12</entry>
+    <entry key="1.keyStorePath">./keystore/eidasEncryptionKeyStore.p12</entry>
+    <entry key="1.keyStorePassword">ENCRYPT_KEYSTORE_PASSWORD</entry>
+    <entry key="1.keyPassword">ENCRYPT_KEYSTORE_KEY_PASSWORD</entry>
+    <entry key="1.keyStoreType">PKCS12</entry>
 
     <!-- Key transport config -->
     <!--  If not present then no decryption will be applied on response -->

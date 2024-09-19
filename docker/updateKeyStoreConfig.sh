@@ -51,5 +51,5 @@ if [ -f "$SIGNMODULE_CONNECTOR_FILE_HSM" ]; then
     sed -i "s/HSM_METADATA_SIGN_CERTIFICATE_SERIAL_NUMBER_HEX/$HSM_METADATA_SIGN_CERTIFICATE_SERIAL_NUMBER_HEX/g" $SIGNMODULE_CONNECTOR_FILE_HSM
     sed -i "s/HSM_METADATA_SIGN_CERTIFICATE_ISSUER/$HSM_METADATA_SIGN_CERTIFICATE_ISSUER/g" $SIGNMODULE_CONNECTOR_FILE_HSM
     echo "$TRUSTSTORE_BASE64" | base64 -d > /etc/config/eidas-connector/keystore/otherCountriesEidasKeyStore.p12
-    echo "Converted truststore and created 1 file:" && ls -l /etc/config/eidas-proxy/keystore/
+    echo "Converted truststore and created 1 file:" && ls -l /etc/config/eidas-connector/keystore/
 fi
