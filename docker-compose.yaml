@@ -42,8 +42,11 @@ services:
       - LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET=mySecretConnectorResponse
       - ENVIRONMENT=docker
       - CATALINA_OPTS=-Xms512m -Xmx1024m -DredisPassword=$${REDIS_PASSWORD} -DredisPort=$${REDIS_PORT} -DredisHost=$${REDIS_HOST} -DlightTokenConnectorRequestSecret=$${LIGHT_TOKEN_CONNECTOR_REQUEST_SECRET} -DlightTokenConnectorResponseSecret=$${LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET}
+# debug locally on port 8089
+#      - CATALINA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:8089 -Xms512m -Xmx1024m -DredisPassword=$${REDIS_PASSWORD} -DredisPort=$${REDIS_PORT} -DredisHost=$${REDIS_HOST} -DlightTokenConnectorRequestSecret=$${LIGHT_TOKEN_CONNECTOR_REQUEST_SECRET} -DlightTokenConnectorResponseSecret=$${LIGHT_TOKEN_CONNECTOR_RESPONSE_SECRET}
     ports:
       - "8083:8083"
+ #     - "8089:8089"
     healthcheck:
       test: wget --no-verbose --tries=1 http://eidas-connector:8083/ConnectorMetadata || exit 1
       interval: 5s
