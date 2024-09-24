@@ -57,6 +57,20 @@
     <entry key="service2.skew.notonorafter">0</entry>
     <entry key="service2.metadata.url">https://eidas-demo-ca.test.eidasnode.no/EidasNodeProxy/ServiceMetadata</entry>
 
+    <!-- Proxy-Service Sverige-->
+    <entry key="service3.id">SE</entry>
+    <entry key="service3.name">Swedish eIDAS Proxy Service</entry>
+    <entry key="service3.skew.notbefore">0</entry>
+    <entry key="service3.skew.notonorafter">0</entry>
+    <entry key="service3.metadata.url">https://qa.proxy.eidas.swedenconnect.se/eidas-ps/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Danmark-->
+    <entry key="service4.id">DK</entry>
+    <entry key="service4.name">Danish eID-gateway</entry>
+    <entry key="service4.skew.notbefore">0</entry>
+    <entry key="service4.skew.notonorafter">0</entry>
+    <entry key="service4.metadata.url">https://eidasservice.test.eid.digst.dk/Metadata</entry>
+
     <!-- SECURITY POLICY -->
     <!-- uri used for the CSP reporting feature-->
     <entry key="security.header.CSP.report.uri">https://connector.test.eidasnode.no/cspReportHandler</entry>
