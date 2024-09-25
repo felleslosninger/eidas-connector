@@ -41,7 +41,7 @@
     <entry key="ssos.serviceMetadataGeneratorIDP.post.location">https://connector.eidasnode.no/ColleagueRequest</entry>
 
     <!-- Number of known Proxy-Service -->
-    <entry key="service.number">1</entry>
+    <entry key="service.number">3</entry>
 
     <!-- Proxy-Service idporten-->
     <entry key="service1.id">NO</entry>
