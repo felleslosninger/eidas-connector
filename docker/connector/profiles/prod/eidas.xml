@@ -41,7 +41,7 @@
     <entry key="ssos.serviceMetadataGeneratorIDP.post.location">https://connector.eidasnode.no/ColleagueRequest</entry>
 
     <!-- Number of known Proxy-Service -->
-    <entry key="service.number">3</entry>
+    <entry key="service.number">27</entry>
 
     <!-- Proxy-Service idporten-->
     <entry key="service1.id">NO</entry>
@@ -63,6 +63,203 @@
     <entry key="service3.skew.notbefore">0</entry>
     <entry key="service3.skew.notonorafter">0</entry>
     <entry key="service3.metadata.url">https://eidasservice.eid.digst.dk/Metadata</entry>
+
+
+    <!-- Proxy-Service Island-->
+    <entry key="service4.id">IS</entry>
+    <entry key="service4.name">Iceland eIDAS Proxy Service</entry>
+    <entry key="service4.skew.notbefore">10000</entry>
+    <entry key="service4.skew.notonorafter">10000</entry>
+    <entry key="service4.metadata.url">NO-SERVICE-YET</entry>
+
+    <!-- Proxy-Service Finland-->
+    <entry key="service5.id">FI</entry>
+    <entry key="service5.name">IS eID-gateway</entry>
+    <entry key="service5.skew.notbefore">10000</entry>
+    <entry key="service5.skew.notonorafter">10000</entry>
+    <entry key="service5.metadata.url">NO-SERVICE-YET</entry>
+
+    <!-- Proxy-Service Italia-->
+    <entry key="service6.id">IT</entry>
+    <entry key="service6.name">Italy eIDAS Proxy Service</entry>
+    <entry key="service6.skew.notbefore">10000</entry>
+    <entry key="service6.skew.notonorafter">10000</entry>
+    <entry key="service6.metadata.url">https://service.eid.gov.it/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Austeriket-->
+    <entry key="service7.id">AT</entry>
+    <entry key="service7.name">Oesterreich eIDAS Proxy Service</entry>
+    <entry key="service7.skew.notbefore">10000</entry>
+    <entry key="service7.skew.notonorafter">10000</entry>
+    <entry key="service7.metadata.url">https://eidas.bmi.gv.at/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Belgia-->
+    <entry key="service8.id">BE</entry>
+    <entry key="service8.name">Belgium eIDAS Proxy Service</entry>
+    <entry key="service8.skew.notbefore">10000</entry>
+    <entry key="service8.skew.notonorafter">10000</entry>
+    <entry key="service8.metadata.url">https://idp.iamfas.belgium.be/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Croatia-->
+    <entry key="service9.id">HR</entry>
+    <entry key="service9.name">x eIDAS Proxy Service</entry>
+    <entry key="service9.skew.notbefore">10000</entry>
+    <entry key="service9.skew.notonorafter">10000</entry>
+    <entry key="service9.metadata.url">https://eidas.gov.hr/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Cyprus-->
+    <entry key="service10.id">CY</entry>
+    <entry key="service10.name">Cyprus eIDAS Proxy Service</entry>
+    <entry key="service10.skew.notbefore">10000</entry>
+    <entry key="service10.skew.notonorafter">10000</entry>
+    <entry key="service10.metadata.url">https://eidas.mof.gov.cy/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Czech republic-->
+    <entry key="service11.id">CZ</entry>
+    <entry key="service11.name">Czech republic eIDAS Proxy Service</entry>
+    <entry key="service11.skew.notbefore">10000</entry>
+    <entry key="service11.skew.notonorafter">10000</entry>
+    <entry key="service11.metadata.url">https://srv.eidasnode.cz/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Estonia-->
+    <entry key="service12.id">EE</entry>
+    <entry key="service12.name">Estonia eIDAS Proxy Service</entry>
+    <entry key="service12.skew.notbefore">10000</entry>
+    <entry key="service12.skew.notonorafter">10000</entry>
+    <entry key="service12.metadata.url">https://eidas.ria.ee/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service France-->
+    <entry key="service13.id">FR</entry>
+    <entry key="service13.name">France eIDAS Proxy Service</entry>
+    <entry key="service13.skew.notbefore">10000</entry>
+    <entry key="service13.skew.notonorafter">10000</entry>
+    <entry key="service13.metadata.url">https://eidas.franceconnect.gouv.fr/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Greece-->
+    <entry key="service14.id">EL</entry>
+    <entry key="service14.name">Greece eIDAS Proxy Service</entry>
+    <entry key="service14.skew.notbefore">10000</entry>
+    <entry key="service14.skew.notonorafter">10000</entry>
+    <entry key="service14.metadata.url">https://eidas.gov.gr/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Latvia-->
+    <entry key="service15.id">LV</entry>
+    <entry key="service15.name">Latvia eIDAS Proxy Service</entry>
+    <entry key="service15.skew.notbefore">10000</entry>
+    <entry key="service15.skew.notonorafter">10000</entry>
+    <entry key="service15.metadata.url">https://eidas.vraa.gov.lv/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Liechtenstein-->
+    <entry key="service16.id">LI</entry>
+    <entry key="service16.name">Liechtenstein eIDAS Proxy Service</entry>
+    <entry key="service16.skew.notbefore">10000</entry>
+    <entry key="service16.skew.notonorafter">10000</entry>
+    <entry key="service16.metadata.url">https://node.llv.li/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Lithuania-->
+    <entry key="service17.id">LT</entry>
+    <entry key="service17.name">Lithuania eIDAS Proxy Service</entry>
+    <entry key="service17.skew.notbefore">10000</entry>
+    <entry key="service17.skew.notonorafter">10000</entry>
+    <entry key="service17.metadata.url">https://peps2.eid.lt/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Luxeumbourg-->
+    <entry key="service18.id">LU</entry>
+    <entry key="service18.name">Luxeumbourg eIDAS Proxy Service</entry>
+    <entry key="service18.skew.notbefore">10000</entry>
+    <entry key="service18.skew.notonorafter">10000</entry>
+    <entry key="service18.metadata.url">https://eidas.services-publics.lu/cisie-node/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Malta-->
+    <entry key="service19.id">MT</entry>
+    <entry key="service19.name">Malta eIDAS Proxy Service</entry>
+    <entry key="service19.skew.notbefore">10000</entry>
+    <entry key="service19.skew.notonorafter">10000</entry>
+    <entry key="service19.metadata.url">https://mteidasnode.gov.mt/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Netherlands-->
+    <entry key="service20.id">NL</entry>
+    <entry key="service20.name">Netherlands eIDAS Proxy Service</entry>
+    <entry key="service20.skew.notbefore">10000</entry>
+    <entry key="service20.skew.notonorafter">10000</entry>
+    <entry key="service20.metadata.url">https://eidas.minez.nl/EidasNodeP/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Poland-->
+    <entry key="service21.id">PL</entry>
+    <entry key="service21.name">Poland eIDAS Proxy Service</entry>
+    <entry key="service21.skew.notbefore">10000</entry>
+    <entry key="service21.skew.notonorafter">10000</entry>
+    <entry key="service21.metadata.url">https://plnode.eidas.gov.pl/2.6/Node/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Portugal-->
+    <entry key="service22.id">PT</entry>
+    <entry key="service22.name">Portugal eIDAS Proxy Service</entry>
+    <entry key="service22.skew.notbefore">10000</entry>
+    <entry key="service22.skew.notonorafter">10000</entry>
+    <entry key="service22.metadata.url">https://eidas.autenticacao.gov.pt/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Romania-->
+    <entry key="service23.id">RO</entry>
+    <entry key="service23.name">Romania eIDAS Proxy Service</entry>
+    <entry key="service23.skew.notbefore">10000</entry>
+    <entry key="service23.skew.notonorafter">10000</entry>
+    <entry key="service23.metadata.url">https://eidas.gov.ro/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Spain-->
+    <entry key="service24.id">ES</entry>
+    <entry key="service24.name">Spain eIDAS Proxy Service</entry>
+    <entry key="service24.skew.notbefore">10000</entry>
+    <entry key="service24.skew.notonorafter">10000</entry>
+    <entry key="service24.metadata.url">https://eidas.redsara.es/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Slovakia-->
+    <entry key="service25.id">SK</entry>
+    <entry key="service25.name">Slovakia eIDAS Proxy Service</entry>
+    <entry key="service25.skew.notbefore">10000</entry>
+    <entry key="service25.skew.notonorafter">10000</entry>
+    <entry key="service25.metadata.url">https://eidas.slovensko.sk/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Slovenia-->
+    <entry key="service26.id">SL</entry>
+    <entry key="service26.name">Slovenia eIDAS Proxy Service</entry>
+    <entry key="service26.skew.notbefore">10000</entry>
+    <entry key="service26.skew.notonorafter">10000</entry>
+    <entry key="service26.metadata.url">https://sipeps.gov.si/EidasNode/ServiceMetadata</entry>
+
+
+    <!-- Proxy-Service Bulgaria-->
+    <entry key="service27.id">BG</entry>
+    <entry key="service27.name">Bulgaria eIDAS Proxy Service</entry>
+    <entry key="service27.skew.notbefore">10000</entry>
+    <entry key="service27.skew.notonorafter">10000</entry>
+    <entry key="service27.metadata.url">https://eidas.egov.bg/EidasNode/ServiceMetadata</entry>
+
+    <!-- Proxy-Service Hungary-->
+    <!--
+    <entry key="service28.id">HU</entry>
+    <entry key="service28.name">Hungary eIDAS Proxy Service</entry>
+    <entry key="service28.skew.notbefore">10000</entry>
+    <entry key="service28.skew.notonorafter">10000</entry>
+    <entry key="service28.metadata.url">TODO</entry>
+    -->
+
+    <!-- Proxy-Service Ireland-->
+    <!--
+    <entry key="service29.id">IE</entry>
+    <entry key="service29.name">Ireland eIDAS Proxy Service</entry>
+    <entry key="service29.skew.notbefore">10000</entry>
+    <entry key="service29.skew.notonorafter">10000</entry>
+    <entry key="service29.metadata.url">TODO</entry>
+    -->
+
+    <!-- Proxy-Service European Commission -->
+    <!--
+    <entry key="service30.id">EU</entry>
+    <entry key="service30.name">European Commission eIDAS Proxy Service</entry>
+    <entry key="service30.skew.notbefore">10000</entry>
+    <entry key="service30.skew.notonorafter">10000</entry>
+    <entry key="service30.metadata.url">TODO</entry>
+    -->
 
     <!-- SECURITY POLICY -->
     <!-- uri used for the CSP reporting feature-->
@@ -86,5 +283,7 @@
     <!-- Temp set explicitly because of default null value fails. Report bug and remove when fixed in next version, i hope. -->
     <!-- BC=Bouncy castle security provider, see docker/java-security-providers/java_bc.security file -->
     <entry key="logging.hash.digest.provider">BC</entry>
+
+    <entry key="interconnection.graph.enabled">true</entry>
 
 </properties>
