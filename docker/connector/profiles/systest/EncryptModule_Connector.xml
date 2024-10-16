@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2022 by European Commission
+  ~ Copyright (c) 2023 by European Commission
   ~
   ~ Licensed under the EUPL, Version 1.2 or - as soon they will be
   ~ approved by the European Commission - subsequent versions of the
@@ -31,6 +31,5 @@
     <!--  If not present then no decryption will be applied on response -->
     <entry key="responseDecryptionIssuer">ENCRYPT_CERTIFICATE_ISSUER</entry>
     <entry key="serialNumber">ENCRYPT_CERTIFICATE_SERIAL_NUMBER_HEX</entry>
-
 
 </properties>
