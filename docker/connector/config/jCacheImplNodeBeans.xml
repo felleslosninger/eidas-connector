@@ -43,43 +43,43 @@
 
     <bean id="springServiceCMapAntiReplayProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="antiReplayCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
 
     <bean id="springConnectorCMapAntiReplayProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="antiReplayCacheConnector"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
     <bean id="springConnectorCMapCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="connectorRequestCorrelationCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
     <bean id="springServiceCMapCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="proxyServiceRequestCorrelationCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
     <bean id="springConnectorCMapspecificLightCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="specificConnectorLtRequestCorrelationCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
     <bean id="connectorFlowIdCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="connectorFlowIdCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
     <bean id="proxyServiceFlowIdCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="proxyServiceFlowIdCacheService"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
     </bean>
 
     <bean id="specificNodeConnectorRequestCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg type="java.lang.String" value="${specific.node.connector.request.cache.name}"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
         <constructor-arg ref="redisMetadataTemplate"/>
     </bean>
 
     <bean id="nodeSpecificConnectorResponseCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg type="java.lang.String" value="${node.specific.connector.response.cache.name}"/>
-        <constructor-arg type="long" value="3600"/>
+        <constructor-arg type="long" value="${redis.timeout}"/>
         <constructor-arg ref="redisMetadataTemplate"/>
     </bean>
 
