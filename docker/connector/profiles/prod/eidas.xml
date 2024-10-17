@@ -29,7 +29,12 @@
 
     <!-- connector contact -->
     <entry key="connector.contact.support.email">brukerstotte@digdir.no</entry>
+    <entry key="connector.contact.support.givenname">Customer support</entry>
     <entry key="connector.contact.support.company">The Norwegian Digitalisation Agency</entry>
+
+    <entry key="connector.contact.technical.email">servicedesk@digdir.no</entry>
+    <entry key="connector.contact.technical.givenname">Technical support</entry>
+    <entry key="connector.contact.technical.company">The Norwegian Digitalisation Agency</entry>
 
     <!-- connector organization -->
     <entry key="connector.organization.name">The Norwegian Digitalisation Agency</entry>
