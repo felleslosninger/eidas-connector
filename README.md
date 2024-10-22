@@ -32,8 +32,8 @@ E.g.
 Disclaimer: Only tested on Mac.
 ### Procedure
 1. Get truststore from Vault in .../team-idporten/eidas/eidas-connector#truststore-p12-base64
-2. base64 decode the truststore
+2. base64 decode the truststore `base64 -d -i string-from-vault.base64 -o <truststore.p12>`
 3. download certificates from eIDAS-dashboard to folder(the PO has running EU scripts from https://github.com/grnet/eidas_node_trust_config)
     * Like this: `for COUNTRY in SE DK FI IT AT BE BG HR CY CZ EE EU FR EL IT LV LI LT LU MT NL PL PT RO ES SK SL; do echo $COUNTRY; ./bin/eidas_node_trust_config --node-country-code NO --environment productionNode --api-countries $COUNTRY --eidas-node-mds-certs-dir prod_certs --eidas-node-mds-certs-component CONNECTOR; done `
 4. run importMetadataCertificates script on folder in 2.
-5. base64 encode the truststore and add String to Vault
+5. base64 encode the truststore `base64 -i <truststore.p12> -o <string-to-vault.base64>` and replace String value in Vault
