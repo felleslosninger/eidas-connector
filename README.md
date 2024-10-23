@@ -21,7 +21,7 @@ docker-compose up --build
 ```
 
 ## Run script for importing metadata pem files to truststore in Vault
-    
+This script is located in the /tools folder.
 ```
 ./importMetadataCertificates.sh <dir> <keystore-file> <keystore-password>
 ```
