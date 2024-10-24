@@ -28,7 +28,7 @@
     <entry key="connector.metadata.url">https://connector.eidasnode.dev/ConnectorMetadata</entry>
 
     <!-- connector contact -->
-    <entry key="connector.contact.support.email">brukerstotte@digdir.no</entry>
+    <entry key="connector.contact.support.email">servicedesk@digdir.no</entry>
     <entry key="connector.contact.support.givenname">Customer support</entry>
     <entry key="connector.contact.support.company">The Norwegian Digitalisation Agency</entry>
 

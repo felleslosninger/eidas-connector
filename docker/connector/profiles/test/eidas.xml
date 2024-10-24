@@ -28,7 +28,7 @@
     <entry key="connector.metadata.url">https://connector.test.eidasnode.no/ConnectorMetadata</entry>
 
     <!-- connector contact -->
-    <entry key="connector.contact.support.email">brukerstotte@digdir.no</entry>
+    <entry key="connector.contact.support.email">servicedesk@digdir.no</entry> <!-- To servicedesk in test env. since technical people use this to contact us on integration issues when this is included in the error messages in our Connector  -->
     <entry key="connector.contact.support.givenname">Customer support</entry>
     <entry key="connector.contact.support.company">The Norwegian Digitalisation Agency</entry>
 
