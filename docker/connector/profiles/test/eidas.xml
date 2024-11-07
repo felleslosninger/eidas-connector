@@ -81,7 +81,7 @@
     <entry key="service5.name">Finland eID-gateway</entry>
     <entry key="service5.skew.notbefore">10000</entry>
     <entry key="service5.skew.notonorafter">10000</entry>
-    <entry key="service5.metadata.url">NO-SERVICE-YET</entry>
+    <entry key="service5.metadata.url">https://nodefi1.eidas-qa.tunnistus.fi/EidasNodeProxy/ServiceMetadata</entry>
 
     <!-- Proxy-Service Italia-->
     <entry key="service6.id">IT</entry>
