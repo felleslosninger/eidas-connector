@@ -1,11 +1,11 @@
-FROM maven:3-eclipse-temurin-22 as builder
+FROM  maven:3.9.6-eclipse-temurin-17 as builder
 
 WORKDIR /data
 
 ARG GIT_PACKAGE_TOKEN
 
 # Download our redis-lib
-ARG REDIS_LIB_VERSION=0.2.0
+ARG REDIS_LIB_VERSION=1.0.2
 RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
 RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
@@ -13,9 +13,9 @@ RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
 
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
-ARG LOG_LIB_VERSION=7.2
+ARG LOG_LIB_VERSION=8.0
 RUN curl -L -O https://repo1.maven.org/maven2/net/logstash/logback/logstash-logback-encoder/${LOG_LIB_VERSION}/logstash-logback-encoder-${LOG_LIB_VERSION}.jar
-ARG JACKSON_LIB_VERSION=2.13.3
+ARG JACKSON_LIB_VERSION=2.15.2
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/${JACKSON_LIB_VERSION}/jackson-core-${JACKSON_LIB_VERSION}.jar
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/${JACKSON_LIB_VERSION}/jackson-databind-${JACKSON_LIB_VERSION}.jar
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/${JACKSON_LIB_VERSION}/jackson-annotations-${JACKSON_LIB_VERSION}.jar
