@@ -7,6 +7,10 @@ See these documents in https://ec.europa.eu/digital-building-blocks/sites/displa
 * eIDAS-Node Installation Quick Start Guide
 * eIDAS-Node Installation and Configuration Guide
 
+## Upgrade
+Upgrade of dependencies must be done manually since they have to match with version used in EU eIDAS-node, and thus must be upgraded carefully.
+Upgrade eidas-proxy and eidas-redis-lib first and then eidas-connector, as eidas-proxy is more "sensitve" to changes in eidas-redis-lib than eidas-connector.
+
 ### Run eidas-connector as docker-compose on your machine for local testing
 
 Add the following to your /etc/hosts file:
