@@ -37,7 +37,7 @@
     <entry key="2.keyPassword">SIGN_KEYSTORE_KEY_PASSWORD</entry>
     <entry key="2.keyStoreType">PKCS12</entry>
     <entry key="issuer">CN=eIDAS-connector-systest-sign,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,ST=Sogndal,C=NO</entry>
-    <entry key="serialNumber">7FE148F6B39AE57B94C8DC6DB52201919D1DC869</entry>
+    <entry key="serialNumber">3635F6FC0EAD76A6E4170F179C9FDA89408F0508</entry>
     
     <!-- Configuration for Metadata signatures with EC -->
     <entry key="3.keyStorePath">./keystore/norwegianEidasKeyStore_METADATA.p12</entry>
