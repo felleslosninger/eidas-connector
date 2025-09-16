@@ -31,6 +31,6 @@ Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.
 ### Signing and metadata signing
 Signing + metadata signing certificate and key stored in HSM for test and production environments. For local-docker and systest these are stored in Vault.
 Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.
-Oppdater sign cert:
-1. oppdater SIGN_KEYSTORE_BASE64 i hhv vault (og docker compose om systest)
-2. oppdater serialnr i vault (og om systest docker/SignModule_Connector.xml)
+Update sign cert:
+1. Update SIGN_KEYSTORE_BASE64 in vault (and docker compose if same value as systest)
+2. Update serialnr in vault (and if docker profile same as systest docker/SignModule_Connector.xml)
