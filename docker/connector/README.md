@@ -13,7 +13,7 @@ The keystore passwords and keystore-key passwords is stored in Vault as well.
 Keystore stored in Vault for all environments.
 Configured in EncryptModule_Connector.xml.
 How to replace:
-1. Look for ENCRYPT_KEYSTORE_BASE64 in the cd-repo.
+1. Look for ENCRYPT_KEYSTORE_BASE64 in the cd-repo to find the vault value for the relevant environment.
 2. Update keystore file with new certificate. Keep same aliases, subject and issuer etc for your mental health
 3. The subject of the new certificate must match encrypt-certificate-issuer in vault exactly
 4. Encode to base64.
