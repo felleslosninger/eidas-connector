@@ -16,13 +16,13 @@ How to replace:
 1. Look for ENCRYPT_KEYSTORE_BASE64 in the cd-repo.
 2. Update keystore file with new certificate. Keep same aliases, subject and issuer etc for your mental health
 3. The subject of the new certificate must encrypt-certificate-issuer in vault exactly
-3. Encode to base64.
-4. Replace value in Vault.
+4. Encode to base64.
+5. Replace value in Vault.
 
 If docker the same as systest:
 1. Update EncryptModule_Connector.xml with new serial number in docker\EncryptModule_connector.xml
 2. responseDecryptionIssuer in EncryptModule_Connector.xml must match the subject of the new certificate exactly 
-2. Update docker compose with new base64 string in environment ENCRYPT_KEYSTORE_BASE64
+3. Update docker compose with new base64 string in environment ENCRYPT_KEYSTORE_BASE64
 
 ### Truststore of other countries metadata signing certificates
 Truststore stored in Vault for all environments.
