@@ -19,7 +19,7 @@ How to replace:
 4. Encode to base64.
 5. Replace value in Vault.
 
-If docker the same as systest:
+If values in docker profile (and docker-compose) are the same as systest, which they are currently:
 1. Update EncryptModule_Connector.xml with new serial number in docker\EncryptModule_connector.xml
 2. responseDecryptionIssuer in EncryptModule_Connector.xml must match the subject of the new certificate exactly 
 3. Update docker compose with new base64 string in environment ENCRYPT_KEYSTORE_BASE64
