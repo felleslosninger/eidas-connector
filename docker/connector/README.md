@@ -12,6 +12,17 @@ The keystore passwords and keystore-key passwords is stored in Vault as well.
 ### Encryption
 Keystore stored in Vault for all environments.
 Configured in EncryptModule_Connector.xml.
+How to replace:
+1. Look for ENCRYPT_KEYSTORE_BASE64 in the cd-repo to find the vault value for the relevant environment.
+2. Update keystore file with new certificate. Keep same aliases, subject and issuer etc for your mental health
+3. The subject of the new certificate must match encrypt-certificate-issuer in vault exactly
+4. Encode to base64.
+5. Replace value in Vault.
+
+If values in docker profile (and docker-compose) are the same as systest, which they are currently:
+1. Update EncryptModule_Connector.xml with new serial number in docker\EncryptModule_connector.xml
+2. responseDecryptionIssuer in EncryptModule_Connector.xml must match the subject of the new certificate exactly 
+3. Update docker compose with new base64 string in environment ENCRYPT_KEYSTORE_BASE64
 
 ### Truststore of other countries metadata signing certificates
 Truststore stored in Vault for all environments.
@@ -20,3 +31,6 @@ Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.
 ### Signing and metadata signing
 Signing + metadata signing certificate and key stored in HSM for test and production environments. For local-docker and systest these are stored in Vault.
 Configured in MetadataModule_Connector.xml/SignModule_Connector_HSM_P12.xml.
+Update sign cert:
+1. Update SIGN_KEYSTORE_BASE64 in vault (and docker compose if same value as systest)
+2. Update serialnr in vault (and if docker profile same as systest docker/SignModule_Connector.xml)

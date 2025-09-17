@@ -29,7 +29,7 @@
 
     <!-- Key transport config -->
     <!--  If not present then no decryption will be applied on response -->
-    <entry key="responseDecryptionIssuer">CN=eidas-local-encryption,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,C=NO</entry>
-    <entry key="serialNumber">7F17461D3F95EE34A7302C6F70E60191F9B4D7FC</entry>
+    <entry key="responseDecryptionIssuer">CN=eidas-local-encryption,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,ST=Sogndal,C=NO</entry>
+    <entry key="serialNumber">4E372623D3C6BEEDF2814F5A1676C674BCF55D80</entry>
 
 </properties>
