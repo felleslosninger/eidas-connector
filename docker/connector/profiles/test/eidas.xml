@@ -257,13 +257,11 @@
     -->
 
     <!-- Proxy-Service European Commission -->
-    <!--
     <entry key="service30.id">EU</entry>
     <entry key="service30.name">European Commission eIDAS Proxy Service</entry>
     <entry key="service30.skew.notbefore">10000</entry>
     <entry key="service30.skew.notonorafter">10000</entry>
     <entry key="service30.metadata.url">TODO</entry>
-    -->
 
     <!-- Proxy-Service CA-->
     <entry key="service28.id">CA</entry>
