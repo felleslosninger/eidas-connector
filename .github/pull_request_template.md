@@ -7,10 +7,10 @@ Eigar:
 - [ ] Vurdert Manual deploy
 - [ ] Vurdert "internal"
 - [ ] Avhengigheter til andre eidas komponenter avklart
-- [ ] Har kjørt opp lokalt med docker-compose og testet en innlogging via teksnisk testklient
+- [ ] Har kjørt opp lokalt med docker-compose og testet en innlogging via teknisk testklient
 - [ ] Husket at denne er basert på EU software, så kan ikke oppdateres helt ukritisk
 - [ ] Oppdatering/oppretting av regresjonstester er avklart/utført om relevant
-- 
+
 Kodeles:
 
 - [ ] Lesbar kode, nødvendige kommentarer
