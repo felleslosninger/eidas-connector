@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: eidas-connector
+  description: eidas-connector
+  annotations:
+    github.com/project-slug: felleslosninger/eidas-connector
+spec:
+  type: application
+  owner: team-idporten
+  lifecycle: production
+  system: eidas
+  dependsOn:
+    - resource:default/eidas-redis
