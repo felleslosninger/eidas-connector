@@ -238,6 +238,14 @@
     <entry key="service27.skew.notonorafter">10000</entry>
     <entry key="service27.metadata.url">https://eidas-test.egov.bg/EidasNode/ServiceMetadata</entry>
 
+    <!-- Proxy-Service Iceland-->
+    <entry key="service29.id">IS</entry>
+    <entry key="service29.name">Iceland eIDAS Proxy Service</entry>
+    <entry key="service29.skew.notbefore">10000</entry>
+    <entry key="service29.skew.notonorafter">10000</entry>
+    <entry key="service29.metadata.url">https://is-eidas-proxy-test.audkenni.is/EidasNodeProxy/ServiceMetadata</entry>
+
+
     <!-- Proxy-Service Hungary-->
     <!--
     <entry key="service28.id">HU</entry>
@@ -247,14 +255,6 @@
     <entry key="service28.metadata.url">TODO</entry>
     -->
 
-    <!-- Proxy-Service Ireland-->
-    <!--
-    <entry key="service29.id">IE</entry>
-    <entry key="service29.name">Ireland eIDAS Proxy Service</entry>
-    <entry key="service29.skew.notbefore">10000</entry>
-    <entry key="service29.skew.notonorafter">10000</entry>
-    <entry key="service29.metadata.url">TODO</entry>
-    -->
 
     <!-- Proxy-Service European Commission -->
     <!--
