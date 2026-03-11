@@ -109,7 +109,7 @@
     <entry key="service9.name">x eIDAS Proxy Service</entry>
     <entry key="service9.skew.notbefore">10000</entry>
     <entry key="service9.skew.notonorafter">10000</entry>
-    <entry key="service9.metadata.url"> https://eidas.gov.hr/EidasNodeProxy/ServiceMetadata</entry>
+    <entry key="service9.metadata.url">https://eidas.gov.hr/EidasNodeProxy/ServiceMetadata</entry>
    
     <!-- Proxy-Service Cyprus-->
     <entry key="service10.id">CY</entry>
