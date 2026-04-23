@@ -104,13 +104,6 @@
     <entry key="service8.skew.notonorafter">10000</entry>
     <entry key="service8.metadata.url">https://idp.iamfas.belgium.be/EidasNode/ServiceMetadata</entry>
 
-    <!-- Proxy-Service Bulgaria-->
-    <entry key="service27.id">BG</entry>
-    <entry key="service27.name">Bulgaria eIDAS Proxy Service</entry>
-    <entry key="service27.skew.notbefore">10000</entry>
-    <entry key="service27.skew.notonorafter">10000</entry>
-    <entry key="service27.metadata.url">https://eidas.egov.bg/EidasNode/ServiceMetadata</entry>
-
     <!-- Proxy-Service Croatia-->
     <entry key="service9.id">HR</entry>
     <entry key="service9.name">x eIDAS Proxy Service</entry>
@@ -153,13 +146,6 @@
     <entry key="service14.skew.notonorafter">10000</entry>
     <entry key="service14.metadata.url">https://eidas.gov.gr/EidasNode/ServiceMetadata</entry>
 
-    <!-- Proxy-Service Ireland-->
-    <entry key="service28.id">IE</entry>
-    <entry key="service28.name">Ireland eIDAS Proxy Service</entry>
-    <entry key="service28.skew.notbefore">10000</entry>
-    <entry key="service28.skew.notonorafter">10000</entry>
-    <entry key="service28.metadata.url">https://eidasnode.gov.ie/EidasNode/ServiceMetadata</entry>
-
     <!-- Proxy-Service Latvia-->
     <entry key="service15.id">LV</entry>
     <entry key="service15.name">Latvia eIDAS Proxy Service</entry>
@@ -179,7 +165,7 @@
     <entry key="service17.name">Lithuania eIDAS Proxy Service</entry>
     <entry key="service17.skew.notbefore">10000</entry>
     <entry key="service17.skew.notonorafter">10000</entry>
-    <entry key="service17.metadata.url">https://peps2.eid.lt/EidasNodeProxy/ServiceMetadata</entry>
+    <entry key="service17.metadata.url">https://peps2.eid.lt/EidasNode/ServiceMetadata</entry>
 
     <!-- Proxy-Service Luxeumbourg-->
     <entry key="service18.id">LU</entry>
@@ -244,9 +230,19 @@
     <entry key="service26.skew.notonorafter">10000</entry>
     <entry key="service26.metadata.url">https://sipeps.gov.si/EidasNode/ServiceMetadata</entry>
 
+    <!-- Proxy-Service Bulgaria-->
+    <entry key="service27.id">BG</entry>
+    <entry key="service27.name">Bulgaria eIDAS Proxy Service</entry>
+    <entry key="service27.skew.notbefore">10000</entry>
+    <entry key="service27.skew.notonorafter">10000</entry>
+    <entry key="service27.metadata.url">https://eidas.egov.bg/EidasNode/ServiceMetadata</entry>
 
-
-
+    <!-- Proxy-Service Ireland-->
+    <entry key="service28.id">IE</entry>
+    <entry key="service28.name">Ireland eIDAS Proxy Service</entry>
+    <entry key="service28.skew.notbefore">10000</entry>
+    <entry key="service28.skew.notonorafter">10000</entry>
+    <entry key="service28.metadata.url">https://eidasnode.gov.ie/EidasNode/ServiceMetadata</entry>
     
     <!-- Proxy-Service Hungary-->
     <!--
