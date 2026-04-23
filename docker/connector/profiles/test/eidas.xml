@@ -166,7 +166,7 @@
     <entry key="service17.name">Lithuania eIDAS Proxy Service</entry>
     <entry key="service17.skew.notbefore">10000</entry>
     <entry key="service17.skew.notonorafter">10000</entry>
-    <entry key="service17.metadata.url">https://testpeps.eid.lt/EidasNode/ServiceMetadata</entry>
+    <entry key="service17.metadata.url">https://testpeps.eid.lt/EidasNodeProxy/ServiceMetadata</entry>
 
     <!-- Proxy-Service Luxeumbourg-->
     <entry key="service18.id">LU</entry>
