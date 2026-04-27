@@ -60,7 +60,7 @@
     <entry key="service2.name">LOCAL-EIDAS-CA</entry>
     <entry key="service2.skew.notbefore">0</entry>
     <entry key="service2.skew.notonorafter">0</entry>
-    <entry key="service2.metadata.url">http://eidas-demo-ca:8080/EidasNodeProxy/ServiceMetadata</entry>
+    <entry key="service2.metadata.url">http://eidas-demo-ca:8084/EidasNodeProxy/ServiceMetadata</entry>
 
     <!-- SECURITY POLICY -->
     <!-- uri used for the CSP reporting feature-->
