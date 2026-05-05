@@ -1,31 +1,35 @@
-FROM  maven:3.9.6-eclipse-temurin-17 as builder
+FROM maven:3.9-eclipse-temurin-21 AS builder
 
 WORKDIR /data
 
 ARG GIT_PACKAGE_TOKEN
 
 # Download our redis-lib
-ARG REDIS_LIB_VERSION=1.0.4
-RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
-RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
+#ARG REDIS_LIB_VERSION=1.0.4
+#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
+#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
 
+#todo remove
+COPY docker/eidas*.jar .
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=8.0
 RUN curl -L -O https://repo1.maven.org/maven2/net/logstash/logback/logstash-logback-encoder/${LOG_LIB_VERSION}/logstash-logback-encoder-${LOG_LIB_VERSION}.jar
-ARG JACKSON_LIB_VERSION=2.15.2
+ARG JACKSON_LIB_VERSION=2.15.4
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/${JACKSON_LIB_VERSION}/jackson-core-${JACKSON_LIB_VERSION}.jar
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/${JACKSON_LIB_VERSION}/jackson-databind-${JACKSON_LIB_VERSION}.jar
 RUN curl -L -O https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/${JACKSON_LIB_VERSION}/jackson-annotations-${JACKSON_LIB_VERSION}.jar
 
 # Download & build EU-eidas software
-ARG EIDAS_NODE_VERSION=2.9.0
+ARG EIDAS_NODE_VERSION=3.0.0
 RUN git clone --depth 1 --branch eidasnode-${EIDAS_NODE_VERSION} https://ec.europa.eu/digital-building-blocks/code/scm/eid/eidasnode-pub.git
+ARG BOUNCYCASTLE_LIB_VERSION=1.81
+RUN curl -l -O https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/${BOUNCYCASTLE_LIB_VERSION}/bcprov-jdk18on-${BOUNCYCASTLE_LIB_VERSION}.jar
 
 # Add our custom libs and config to EU-eidas software before build
-RUN mkdir -p eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib && cp /data/eidas-redis-*${REDIS_LIB_VERSION}.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
+RUN mkdir -p eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib && cp /data/eidas-redis-*.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
 RUN cp /data/logstash-logback-encoder-*.jar /data/jackson-*.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
 COPY docker/connector/config/connectorSpecificCommunicationCaches.xml eidasnode-pub/EIDAS-SpecificCommunicationDefinition/src/main/resources/
 COPY docker/connector/logback.xml eidasnode-pub/EIDAS-Node-Connector/src/main/resources/logback.xml
@@ -42,14 +46,14 @@ RUN mkdir -p /usr/local/luna
 RUN tar xvf /tmp/Luna_min_client.tar --strip 1 -C /usr/local/luna
 
 
-FROM tomcat:9.0-jre17-temurin-jammy
+FROM tomcat:11.0-jre21-temurin
 
 #Fjerner passord fra logger ved oppstart
 RUN sed -i -e 's/FINE/WARNING/g' /usr/local/tomcat/conf/logging.properties
 # Fjerner default applikasjoner fra tomcat
 RUN rm -rf /usr/local/tomcat/webapps.dist
 
-COPY docker/bouncycastle/bcprov-jdk18on-1.78.1.jar /usr/local/lib/bcprov-jdk18on-1.78.1.jar
+COPY --from=builder /data/bcprov-jdk18on-*.jar /usr/local/lib/
 COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/security/
 
 #HSM
