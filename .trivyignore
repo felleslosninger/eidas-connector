@@ -17,3 +17,4 @@ CVE-2022-42004 # jackson-databind fixed in 2.12.7.1, 2.13.4
 CVE-2024-47554 # commons-io fixed in 2.14.0
 CVE-2025-41249 # spring-core fixed in 6.2.11 │ bruker ikke EnableMethodSecurity
 GHSA-72hv-8253-57qq # jackson-databind fixed in 2.18.6, 2.21.1, 3.1.0
+CVE-2026-5598 # bouncycastle: BC-JAVA: private key leakage via non-constant fixed in 1.84

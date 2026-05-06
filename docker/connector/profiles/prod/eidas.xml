@@ -221,7 +221,7 @@
     <entry key="service25.name">Slovakia eIDAS Proxy Service</entry>
     <entry key="service25.skew.notbefore">10000</entry>
     <entry key="service25.skew.notonorafter">10000</entry>
-    <entry key="service25.metadata.url">https://eidas.slovensko.sk/EidasNode/ServiceMetadata</entry>
+    <entry key="service25.metadata.url">https://eidas.slovensko.sk/EidasNodeProxy/ServiceMetadata</entry>
 
     <!-- Proxy-Service Slovenia-->
     <entry key="service26.id">SI</entry>
