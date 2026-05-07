@@ -5,11 +5,11 @@ WORKDIR /data
 ARG GIT_PACKAGE_TOKEN
 
 # Download our redis-lib
-#ARG REDIS_LIB_VERSION=3.0.0
-#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
-#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
+ARG REDIS_LIB_VERSION=3.0.1
+RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
+RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=8.0
@@ -25,8 +25,6 @@ RUN git clone --depth 1 --branch eidasnode-${EIDAS_NODE_VERSION} https://ec.euro
 ARG BOUNCYCASTLE_LIB_VERSION=1.81
 RUN curl -l -O https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/${BOUNCYCASTLE_LIB_VERSION}/bcprov-jdk18on-${BOUNCYCASTLE_LIB_VERSION}.jar
 
-ARG REDIS_LIB_VERSION=DEV-SNAPSHOT
-COPY docker/eidas*.jar .
 # Add our custom libs and config to EU-eidas software before build
 RUN mkdir -p eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib && cp /data/eidas-redis-*${REDIS_LIB_VERSION}.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
 RUN cp /data/logstash-logback-encoder-*.jar /data/jackson-*.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
