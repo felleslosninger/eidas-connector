@@ -1,4 +1,6 @@
 # Run after build docker image this command to check locally: trivy image eidas-eidas-connector:latest
+CVE-2025-41249 # spring-core Spring Framework Annotation Detection Vulnerability fixed in  6.2.11
+CVE-2024-47554 # apache-commons-io fixed in 2.14.0
 CVE-2026-5598 # bouncycastle: BC-JAVA: private key leakage via non-constant fixed in 1.84
 CVE-2025-24970 # io.netty:netty-handler fixed in 4.1.118.Final
 CVE-2026-42583 # Netty Lz4FrameDecoder fixed in 4.1.133.Final
