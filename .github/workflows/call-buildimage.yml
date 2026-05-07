@@ -11,6 +11,11 @@ on:
       - 'LICENSE'
       - "catalog-info/**"
 
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
 jobs:
   build-publish-image:
     uses: felleslosninger/github-workflows/.github/workflows/ci-build-publish-image.yml@main

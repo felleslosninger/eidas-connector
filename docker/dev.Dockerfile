@@ -5,14 +5,11 @@ WORKDIR /data
 ARG GIT_PACKAGE_TOKEN
 
 # Download our redis-lib
-#ARG REDIS_LIB_VERSION=1.0.4
-#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
-#RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-#  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
-
-#todo remove
-COPY docker/eidas*.jar .
+ARG REDIS_LIB_VERSION=3.0.0
+RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
+RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
+  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=8.0
