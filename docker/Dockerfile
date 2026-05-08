@@ -10,8 +10,6 @@ RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis/${REDIS_LIB_VERSION}/eidas-redis-${REDIS_LIB_VERSION}.jar
 RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
   https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-node/${REDIS_LIB_VERSION}/eidas-redis-node-${REDIS_LIB_VERSION}.jar
-RUN curl -H "Authorization: token ${GIT_PACKAGE_TOKEN}" -L -O \
-  https://maven.pkg.github.com/felleslosninger/eidas-redis-lib/no/idporten/eidas/eidas-redis-specific-communication/${REDIS_LIB_VERSION}/eidas-redis-specific-communication-${REDIS_LIB_VERSION}.jar
 
 # Logstash-logback-endcoder to enable JSON logging (needs jackson). Versions must match logback in connector pom.xml
 ARG LOG_LIB_VERSION=8.0
