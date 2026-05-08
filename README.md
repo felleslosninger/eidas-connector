@@ -1,7 +1,7 @@
 # eidas-connector
 eIDAS generic connector for Norway
 
-See these documents in https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/eIDAS-Node+version+2.8:
+See these documents in https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/eIDAS-Node+version+3.0.0:
 
 * eIDAS-Node National IdP and SP Integration Guide
 * eIDAS-Node Installation Quick Start Guide

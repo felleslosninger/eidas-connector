@@ -16,6 +16,8 @@
   ~ See the Licence for the specific language governing permissions and
   ~ limitations under the Licence.
   -->
+<!-- We prefix this file with jcache to avoid more config override -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
@@ -41,35 +43,67 @@
     <bean id="redisMetadataConfig" class="no.idporten.eidas.redis.cache.metadata.RedisMetadataConfig">
     </bean>
 
-    <bean id="springServiceCMapAntiReplayProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
-        <constructor-arg value="antiReplayCacheService"/>
-        <constructor-arg type="long" value="${redis.timeout}"/>
+    <!-- a new cachemanager that maps keys to the caches-->
+    <bean id="connectorCacheProvider" class="no.idporten.eidas.redis.cache.EidasRedisCacheManager">
+        <constructor-arg>
+            <map>
+                <entry key="antiReplayConnector" value-ref="springConnectorCMapAntiReplayProviderImpl"/>
+                <entry key="specificCorrelationConnector" value-ref="springConnectorCMapspecificLightCorProviderImpl"/>
+                <entry key="samlCorrelationConnector" value-ref="springConnectorCMapCorProviderImpl"/>
+                <entry key="flowIdConnector" value-ref="connectorFlowIdCacheImpl"/>
+                <entry key="metadataConnector" value-ref="metadataCacheImpl"/>
+                <entry key="metadataRolloverConnector" value-ref="metadataRolloverCacheImpl"/>
+                <entry key="specificNodeConnectorRequestCache" value-ref="specificNodeConnectorRequestCacheImpl"/>
+                <entry key="nodeSpecificConnectorResponseCache" value-ref="nodeSpecificConnectorResponseCacheImpl"/>
+            </map>
+        </constructor-arg>
     </bean>
 
-    <bean id="springConnectorCMapAntiReplayProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+    <!-- Caches in cachemanager -->
+    <bean id="springConnectorCMapAntiReplayProviderImpl"
+          class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="antiReplayCacheConnector"/>
         <constructor-arg type="long" value="${redis.timeout}"/>
+        <constructor-arg ref="redisNodeTemplate"/>
     </bean>
-    <bean id="springConnectorCMapCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+
+    <bean id="springConnectorCMapCorProviderImpl" 
+          class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="connectorRequestCorrelationCacheService"/>
         <constructor-arg type="long" value="${redis.timeout}"/>
+        <constructor-arg ref="redisNodeTemplate"/>
     </bean>
-    <bean id="springServiceCMapCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
-        <constructor-arg value="proxyServiceRequestCorrelationCacheService"/>
-        <constructor-arg type="long" value="${redis.timeout}"/>
-    </bean>
-    <bean id="springConnectorCMapspecificLightCorProviderImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+
+    <bean id="springConnectorCMapspecificLightCorProviderImpl" 
+          class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="specificConnectorLtRequestCorrelationCacheService"/>
         <constructor-arg type="long" value="${redis.timeout}"/>
+        <constructor-arg ref="redisNodeTemplate"/>
     </bean>
-    <bean id="connectorFlowIdCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
+
+    <bean id="connectorFlowIdCacheImpl" 
+          class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg value="connectorFlowIdCacheService"/>
         <constructor-arg type="long" value="${redis.timeout}"/>
+        <constructor-arg ref="redisNodeTemplate"/>
     </bean>
-    <bean id="proxyServiceFlowIdCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
-        <constructor-arg value="proxyServiceFlowIdCacheService"/>
-        <constructor-arg type="long" value="${redis.timeout}"/>
+
+    <bean id="metadataCacheImpl" 
+          class="no.idporten.eidas.redis.cache.metadata.SimpleMetadataCaching">
+        <constructor-arg type="java.lang.String" value="metadata"/>
+        <constructor-arg type="long" value="-1"/>
+        <constructor-arg ref="redisMetadataTemplate"/>
     </bean>
+
+    <bean id="metadataRolloverCacheImpl" 
+          class="no.idporten.eidas.redis.cache.metadata.SimpleMetadataCaching" lazy-init="true">
+        <constructor-arg type="java.lang.String" value="metadata"/>
+        <constructor-arg type="long" value="-1"/>
+        <constructor-arg ref="redisMetadataTemplate"/>
+    </bean>
+
+    <!--communication caches-->
+
 
     <bean id="specificNodeConnectorRequestCacheImpl" class="no.idporten.eidas.redis.cache.RedisCache">
         <constructor-arg type="java.lang.String" value="${specific.node.connector.request.cache.name}"/>
@@ -84,23 +118,24 @@
     </bean>
 
     <bean id="specificNodeConnectorRequestCache" class="eu.eidas.specificcommunication.CommunicationCache">
-        <constructor-arg ref="specificNodeConnectorRequestCacheImpl"/>
+        <constructor-arg ref="connectorCacheProvider"/>
+        <constructor-arg value="specificNodeConnectorRequestCache"/>
     </bean>
 
     <bean id="nodeSpecificConnectorResponseCache" class="eu.eidas.specificcommunication.CommunicationCache">
-        <constructor-arg ref="nodeSpecificConnectorResponseCacheImpl"/>
+        <constructor-arg ref="connectorCacheProvider"/>
+        <constructor-arg value="nodeSpecificConnectorResponseCache"/>
+
     </bean>
 
-    <!-- Simple cache for this just to verify the others -->
-    <bean id="metadataCacheImpl" class="no.idporten.eidas.redis.cache.metadata.SimpleMetadataCaching">
-        <constructor-arg type="java.lang.String" value="metadata"/>
-        <constructor-arg type="long" value="-1"/>
-        <constructor-arg ref="redisMetadataTemplate"/>
+    <!-- Metrics binders -->
+    <bean id="eidasTelemetryRegistry" class="no.idporten.eidas.redis.cache.metrics.EidasTelemetryRegistry" lazy-init="true"/>
+    <bean id="connectorCacheMetricsBinder" class="no.idporten.eidas.redis.cache.metrics.RedisCacheMetricsBinder" lazy-init="true">
+        <constructor-arg ref="connectorCacheProvider"/>
+    </bean>
+    <bean id="specificConnectorCommunicationCacheMetricsBinder" class="no.idporten.eidas.redis.cache.metrics.RedisCacheMetricsBinder"
+          lazy-init="true">
+        <constructor-arg ref="connectorCacheProvider"/>
     </bean>
 
-    <bean id="metadataRolloverCacheImpl" class="no.idporten.eidas.redis.cache.metadata.SimpleMetadataCaching" lazy-init="true">
-        <constructor-arg type="java.lang.String" value="metadata"/>
-        <constructor-arg type="long" value="-1"/>
-        <constructor-arg ref="redisMetadataTemplate"/>
-    </bean>
 </beans>
