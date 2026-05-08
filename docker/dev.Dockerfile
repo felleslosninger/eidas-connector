@@ -44,13 +44,13 @@ RUN tar xvf /tmp/Luna_min_client.tar --strip 1 -C /usr/local/luna
 
 
 FROM tomcat:11.0-jre21-temurin
-ARG BOUNCYCASTLE_LIB_VERSION=1.81
+
 #Fjerner passord fra logger ved oppstart
 RUN sed -i -e 's/FINE/WARNING/g' /usr/local/tomcat/conf/logging.properties
 # Fjerner default applikasjoner fra tomcat
 RUN rm -rf /usr/local/tomcat/webapps.dist
 
-COPY --from=builder /data/bcprov-jdk18on-${BOUNCYCASTLE_LIB_VERSION}.jar /usr/local/lib/bcprov-jdk18on-${BOUNCYCASTLE_LIB_VERSION}.jar
+COPY --from=builder /data/bcprov-jdk18on-*.jar /usr/local/lib/
 COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/security/
 
 #HSM
