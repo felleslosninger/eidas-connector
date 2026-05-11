@@ -45,7 +45,7 @@ RUN sed -i -e 's/FINE/WARNING/g' /usr/local/tomcat/conf/logging.properties
 # Fjerner default applikasjoner fra tomcat
 RUN rm -rf /usr/local/tomcat/webapps.dist
 
-COPY --from=builder /data/bcprov-jdk18on-*.jar /usr/local/lib/
+COPY --from=builder /data/bcprov-jdk18on-1.81.jar /usr/local/lib/bcprov-jdk18on-1.81.jar
 COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/security/
 
 #HSM
