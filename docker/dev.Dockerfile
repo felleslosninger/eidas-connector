@@ -49,9 +49,9 @@ COPY --from=builder /data/bcprov-jdk18on-*.jar /usr/local/lib/
 COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/security/
 
 #HSM
-COPY --from=builder /usr/local/luna /var/usrlocal/luna
-ENV ChrystokiConfigurationPath=/var/usrlocal/luna/config
-COPY docker/luna/Chrystoki.conf ${ChrystokiConfigurationPath}/
+ENV ChrystokiBasePath=/var/usrlocal/luna
+COPY --from=builder /usr/local/luna ${ChrystokiBasePath}
+COPY docker/luna/Chrystoki.conf ${ChrystokiBasePath}/config
 COPY --from=builder /usr/local/luna/jsp/64/libLunaAPI.so /opt/java/openjdk/lib/
 
 COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
