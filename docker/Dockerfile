@@ -49,10 +49,11 @@ RUN chmod 776 /opt/java/openjdk/conf/security/java_bc.security
 
 #HSM
 ENV ChrystokiBasePath=/var/usrlocal/luna
+RUN mkdir -p ${ChrystokiBasePath}/config/certs
 COPY --from=builder /usr/local/luna ${ChrystokiBasePath}
 COPY docker/luna/Chrystoki.conf ${ChrystokiBasePath}/config
 COPY --from=builder /usr/local/luna/jsp/64/libLunaAPI.so /opt/java/openjdk/lib/
-RUN mkdir -p ${ChrystokiBasePath}/config/certs
+
 
 COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
 COPY docker/connector/tomcat-setenv.sh ${CATALINA_HOME}/bin/setenv.sh

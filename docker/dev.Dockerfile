@@ -50,6 +50,7 @@ COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/sec
 
 #HSM
 ENV ChrystokiBasePath=/var/usrlocal/luna
+RUN mkdir -p ${ChrystokiBasePath}/config/certs
 COPY --from=builder /usr/local/luna ${ChrystokiBasePath}
 COPY docker/luna/Chrystoki.conf ${ChrystokiBasePath}/config
 COPY --from=builder /usr/local/luna/jsp/64/libLunaAPI.so /opt/java/openjdk/lib/
