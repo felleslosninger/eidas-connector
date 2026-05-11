@@ -18,6 +18,8 @@ RUN mvn package -f /data/extra-libs-pom.xml -q
 # Download & build EU-eidas software
 ARG EIDAS_NODE_VERSION=3.0.0
 RUN git clone --depth 1 --branch eidasnode-${EIDAS_NODE_VERSION} https://ec.europa.eu/digital-building-blocks/code/scm/eid/eidasnode-pub.git
+ARG BOUNCYCASTLE_LIB_VERSION=1.81
+RUN curl -l -O https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/${BOUNCYCASTLE_LIB_VERSION}/bcprov-jdk18on-${BOUNCYCASTLE_LIB_VERSION}.jar
 
 # Add our custom libs and config to EU-eidas software before build
 RUN mkdir -p eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib && cp /data/eidas-redis-*${REDIS_LIB_VERSION}.jar eidasnode-pub/EIDAS-Node-Connector/src/main/webapp/WEB-INF/lib/
@@ -43,7 +45,7 @@ RUN sed -i -e 's/FINE/WARNING/g' /usr/local/tomcat/conf/logging.properties
 # Fjerner default applikasjoner fra tomcat
 RUN rm -rf /usr/local/tomcat/webapps.dist
 
-COPY --from=builder /data/bcprov-jdk18on-*.jar /usr/local/lib/
+COPY --from=builder /data/bcprov-jdk18on-1.81.jar /usr/local/lib/bcprov-jdk18on-1.81.jar
 COPY docker/java-security-providers/*java_bc.security /opt/java/openjdk/conf/security/
 RUN chmod 776 /opt/java/openjdk/conf/security/java_bc.security
 
