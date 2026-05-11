@@ -57,7 +57,7 @@ RUN mkdir -p ${ChrystokiBasePath}/config/certs
 COPY docker/connector/server.xml ${CATALINA_HOME}/conf/server.xml
 COPY docker/connector/tomcat-setenv.sh ${CATALINA_HOME}/bin/setenv.sh
 
-RUN mkdir -p /etc/config && chmod 777 /etc/config
+RUN mkdir -p /etc/config && chmod 770 /etc/config
 COPY docker/connector/config /etc/config/eidas-connector
 COPY docker/connector/profiles /etc/config/profiles
 RUN chmod 776 /etc/config/eidas-connector && mkdir /etc/config/eidas-connector/keystore && chmod 776 /etc/config/eidas-connector/keystore
