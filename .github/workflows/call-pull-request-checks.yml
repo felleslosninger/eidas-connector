@@ -26,5 +26,5 @@ jobs:
       application-type: spring-boot
       pull-request-title: ${{ github.event.pull_request.title }}
       pull-request-allowed-prefixes: "Bump,ID-"
-      java-version: 25
+      java-version: 21
     secrets: inherit
