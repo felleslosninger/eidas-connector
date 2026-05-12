@@ -23,7 +23,7 @@ jobs:
       contents: write
       pull-requests: write
     with:
-      application-type: spring-boot
+      application-type: docker
       pull-request-title: ${{ github.event.pull_request.title }}
       pull-request-allowed-prefixes: "Bump,ID-"
       java-version: 21
