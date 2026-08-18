@@ -242,7 +242,7 @@
     <entry key="service28.name">Ireland eIDAS Proxy Service</entry>
     <entry key="service28.skew.notbefore">10000</entry>
     <entry key="service28.skew.notonorafter">10000</entry>
-    <entry key="service28.metadata.url">https://eidasnode.gov.ie/EidasNode/ServiceMetadata</entry>
+    <entry key="service28.metadata.url">https://eidasnode.gov.ie/EidasNodeProxy/ServiceMetadata</entry>
     
     <!-- Proxy-Service Hungary-->
     <!--
