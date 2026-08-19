@@ -4,3 +4,17 @@ CVE-2024-47554 # apache-commons-io fixed in 2.14.0
 CVE-2026-5598 # bouncycastle: BC-JAVA: private key leakage via non-constant fixed in 1.84
 CVE-2025-24970 # io.netty:netty-handler fixed in 4.1.118.Final
 CVE-2026-42583 # Netty Lz4FrameDecoder fixed in 4.1.133.Final
+GHSA-r7wm-3cxj-wff9 # fixed version  2.18.8, 2.21.4              │ jackson-core: Async parser maxNumberLength bypass via        │
+CVE-2026-54512      # fixed version  2.18.8, 3.1.4, 2.21.4       │ jackson-databind: jackson-databind: Arbitrary code execution │
+CVE-2026-54513      # fixed version  2.18.8, 2.21.4, 3.1.4       │ jackson-databind: Jackson-databind: Security bypass allows   │
+CVE-2026-40984      # fixed version  1.16.6, 1.15.12             │ micrometer-core: micrometer-jetty11: micrometer-jetty12:     │
+CVE-2026-59901      # fixed version  4.1.136.Final               │ io.netty/netty-codec-compression: Netty: Infinite loop in    │
+CVE-2026-44249      # fixed version  4.2.15.Final, 4.1.135.Final │ netty-handler: netty-handler: IPv6 subnet rule bypass due to │
+CVE-2026-45416      # fixed version                              │ netty-handler: Netty: Denial of Service due to eager buffer  │
+CVE-2026-50010      # fixed version                              │ netty-handler: Netty: Improper trust manager handling leads  │
+CVE-2026-54399      # fixed version  5.4.3, 5.5-beta2            │ org.apache.httpcomponents.core5/httpcore5: Apache            │
+CVE-2026-54428      # fixed version                              │ org.apache.httpcomponents.core5/httpcore5-h2: Apache         │
+CVE-2025-14813      # fixed version  1.80.2, 1.81.1, 1.84        │ bouncycastle: BC-JAVA: GOSTCTR implementation unable to      │
+CVE-2026-41695      # fixed version  4.0.6, 3.5.12               │ Spring Data Commons: Spring Data Commons: Denial of Service  │
+CVE-2026-41716      # fixed version                              │ Spring Data Commons: Spring Data Commons: Denial of Service  │
+CVE-2026-41850      # fixed version  7.0.8, 6.2.19               │ spring-framework: Spring Framework: Denial of Service via    │
