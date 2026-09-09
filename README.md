@@ -41,3 +41,10 @@ Disclaimer: Only tested on Mac.
     * Like this: `for COUNTRY in SE DK FI IT AT BE BG HR CY CZ EE EU FR EL IT LV LI LT LU MT NL PL PT RO ES SK SL; do echo $COUNTRY; ./bin/eidas_node_trust_config --node-country-code NO --environment productionNode --api-countries $COUNTRY --eidas-node-mds-certs-dir prod_certs --eidas-node-mds-certs-component CONNECTOR; done `
 4. run importMetadataCertificates script on folder in 3.
 5. base64 encode the truststore `base64 -i <truststore.p12> -o <string-to-vault.base64>` and replace String value in Vault
+
+## Systest Signing Certificate Setup for Development
+
+1. Get signing keystore from Vault: `vault read -field=sign-keystore-p12-base64 team-idporten/eidas/eidas-connector/systest | base64 -d > norwegianConnectorKeyStore.p12`
+2. Create self-signed certificate: `keytool -selfcert -alias eIDAS-connector-systest-sign -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -keystore norwegianConnectorKeyStore.p12 -storepass changeit -validity 1000 -keypass changeit -dname "CN=eIDAS-connector-systest-sign,OU=ID-porten,O=Digitaliseringsdirektoratet,L=Leikanger,ST=Sogndal,C=NO"`
+3. Extract serial number: `keytool -list -v -alias eIDAS-connector-systest-sign -keystore norwegianConnectorKeyStore.p12 -storepass changeit | grep "Serial number"`
+4. Update serial numbers in `docker/connector/profiles/systest/SignModule_Connector.xml` at line 40 (decimal format) and line 48 (hexadecimal format)

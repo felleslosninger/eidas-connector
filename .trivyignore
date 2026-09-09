@@ -18,4 +18,3 @@ CVE-2025-14813      # fixed version  1.80.2, 1.81.1, 1.84        │ bouncycastl
 CVE-2026-41695      # fixed version  4.0.6, 3.5.12               │ Spring Data Commons: Spring Data Commons: Denial of Service  │
 CVE-2026-41716      # fixed version                              │ Spring Data Commons: Spring Data Commons: Denial of Service  │
 CVE-2026-41850      # fixed version  7.0.8, 6.2.19               │ spring-framework: Spring Framework: Denial of Service via    │
-CVE-2026-75595      # fixed version 4.2.17.Final, 4.1.137.Final  │ Netty is an asynchronous, event-driven network application   │                                
