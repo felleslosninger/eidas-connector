@@ -20,7 +20,7 @@
         <lettuce.version>6.4.2.RELEASE</lettuce.version>
         <reactor.version>3.6.6</reactor.version>
         <reactive-streams.version>1.0.4</reactive-streams.version>
-        <netty.version>4.1.107.Final</netty.version>
+        <netty.version>4.1.137.Final</netty.version>
     </properties>
 
     <dependencies>
